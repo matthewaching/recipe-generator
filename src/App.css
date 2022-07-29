@@ -41,3 +41,7 @@ tr:nth-child(odd) td {
 caption {
   padding: 10px;
 }
+
+.searchbar {
+  margin-bottom: 24px;
+}
