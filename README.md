@@ -18,3 +18,4 @@ For each fully-developed function, remember to commit further updates via branch
 1. Search/filter functionality
 2. Full list view via accordion navigation with sorting features
 3. Link on each page to most relevant wikipedia article
+4. Summary view when hovering over an item
