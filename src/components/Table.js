@@ -1,23 +1,8 @@
-function Table(props) {
+function Table({itemArray}) {
     return <table>
-        <tr>
-            <td>test</td>
-            <td>test</td>
-            <td>test</td>
-            <td>test</td>
-        </tr>
-        <tr>
-            <td>test</td>
-            <td>test</td>
-            <td>test</td>
-            <td>test</td>
-        </tr>
-        <tr>
-            <td>test</td>
-            <td>test</td>
-            <td>test</td>
-            <td>test</td>
-        </tr>
+        {itemArray.map(item => {
+            return <tr><td>{item.name}</td></tr>
+        })}
     </table>
 }
 
