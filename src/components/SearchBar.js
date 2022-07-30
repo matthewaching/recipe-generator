@@ -11,6 +11,10 @@ function Searchbar({currentItem, setCurrentItem, itemArray, setArray}) {
     const addItem = (e) => {
         e.preventDefault();
         setArray([...itemArray, currentItem]);
+        setCurrentItem({
+            name: '',
+            index: currentItem.index + 1,
+          });
     }
 
     return(
