@@ -1,6 +1,5 @@
 import './App.css';
 import { useState } from 'react';
-import { useEffect } from 'react';
 import SearchBar from './components/SearchBar';
 import Table from './components/Table';
 
@@ -12,13 +11,6 @@ function App() {
   );
 
   const [itemArray, setArray] = useState([]);
-
-  useEffect(() => {
-    setCurrentItem({
-      name: '',
-      index: currentItem.index + 1,
-    });
-  }, [itemArray]);
 
   return (
     <div className="App">
