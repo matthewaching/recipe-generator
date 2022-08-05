@@ -1,3 +1,5 @@
+import PropTypes from "prop-types";
+
 function Searchbar({ currentItem, setCurrentItem, itemArray, setArray }) {
   const searchInput = (e) => {
     console.log();
@@ -56,5 +58,12 @@ function Searchbar({ currentItem, setCurrentItem, itemArray, setArray }) {
     </form>
   );
 }
+
+Searchbar.propTypes = {
+  currentItem: PropTypes.object,
+  setCurrentItem: PropTypes.object,
+  itemArray: PropTypes.object,
+  setArray: PropTypes.object,
+};
 
 export default Searchbar;
