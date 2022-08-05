@@ -1,5 +1,4 @@
 import "./App.css";
-import { useState } from "react";
 import InputList from "./components/InputList/InputList";
 
 function App() {

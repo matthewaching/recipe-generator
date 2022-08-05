@@ -1,9 +1,10 @@
+import PropTypes from "prop-types";
+
 function Table({ itemArray }) {
   return (
     <table>
       <thead>
         <tr>
-          <th>Item Index:</th>
           <th>Name of Dish:</th>
           <th>Date Experienced:</th>
           <th>Mealtime:</th>
@@ -14,8 +15,7 @@ function Table({ itemArray }) {
         {itemArray.map((item) => {
           const { index, name, date, meal, cooked } = item;
           return (
-            <tr>
-              <td>{index}</td>
+            <tr key={index}>
               <td>{name}</td>
               <td>{date}</td>
               <td>{meal}</td>
@@ -27,5 +27,9 @@ function Table({ itemArray }) {
     </table>
   );
 }
+
+Table.propTypes = {
+  itemArray: PropTypes.object,
+};
 
 export default Table;
