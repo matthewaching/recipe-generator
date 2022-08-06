@@ -19,3 +19,5 @@ root.render(
 reportWebVitals();
 
 const app = initializeApp(getFirebaseConfig());
+
+app;
