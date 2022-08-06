@@ -29,7 +29,7 @@ function Table({ itemArray }) {
 }
 
 Table.propTypes = {
-  itemArray: PropTypes.object,
+  itemArray: PropTypes.array,
 };
 
 export default Table;

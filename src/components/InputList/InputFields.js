@@ -63,9 +63,9 @@ function InputFields({ currentItem, setCurrentItem, itemArray, setArray }) {
 
 InputFields.propTypes = {
   currentItem: PropTypes.object,
-  setCurrentItem: PropTypes.object,
-  itemArray: PropTypes.object,
-  setArray: PropTypes.object,
+  setCurrentItem: PropTypes.func,
+  itemArray: PropTypes.array,
+  setArray: PropTypes.func,
 };
 
 export default InputFields;
