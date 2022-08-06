@@ -16,6 +16,12 @@ Design will be on the backburner for the majority of the project. Once baseline 
 
 Practice on atomic committing and appropriate commenting will be practiced throughout this project in order to simulate a real-world developer environment.
 
+## To-Do
+
+1. Optimize responsivity of input fields
+2. Check stretch element on table
+3. Grayscale background image
+
 ## Planned features
 
 1. Search/filter functionality

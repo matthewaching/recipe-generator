@@ -1,5 +1,5 @@
 import Table from "./Table";
-import SearchBar from "./SearchBar";
+import InputFields from "./InputFields";
 import { useState } from "react";
 
 function InputList() {
@@ -14,8 +14,8 @@ function InputList() {
   const [itemArray, setArray] = useState([]);
 
   return (
-    <div>
-      <SearchBar
+    <div className="inputs-table-container">
+      <InputFields
         currentItem={currentItem}
         setCurrentItem={setCurrentItem}
         itemArray={itemArray}
