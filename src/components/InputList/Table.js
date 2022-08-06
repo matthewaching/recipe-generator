@@ -6,7 +6,7 @@ function Table({ itemArray }) {
       <thead>
         <tr>
           <th>Name of Dish:</th>
-          <th>Date Experienced:</th>
+          <th>Date:</th>
           <th>Mealtime:</th>
           <th>Cooked?</th>
         </tr>
@@ -15,7 +15,7 @@ function Table({ itemArray }) {
         {itemArray.map((item) => {
           const { index, name, date, meal, cooked } = item;
           return (
-            <tr key={index}>
+            <tr className="itemTable" key={index}>
               <td>{name}</td>
               <td>{date}</td>
               <td>{meal}</td>
