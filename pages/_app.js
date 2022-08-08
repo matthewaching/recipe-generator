@@ -2,6 +2,7 @@ import "../src/App.css";
 import Link from "next/link";
 import { AppBar } from "@mui/material";
 import { Button } from "@mui/material";
+import { PropTypes } from "prop-types";
 
 function MyApp({ Component, pageProps }) {
   return (
@@ -27,5 +28,10 @@ function MyApp({ Component, pageProps }) {
     </>
   );
 }
+
+MyApp.propTypes = {
+  Component: PropTypes.elementType.isRequired,
+  pageProps: PropTypes.object,
+};
 
 export default MyApp;
