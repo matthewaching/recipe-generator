@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 
-function DisplayRecipe() {
+export default function DisplayRecipe() {
   const [currentRecipe, setRecipe] = useState();
 
   const url =
@@ -23,5 +23,3 @@ function DisplayRecipe() {
     </div>
   );
 }
-
-export default DisplayRecipe;

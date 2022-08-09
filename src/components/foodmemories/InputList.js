@@ -2,7 +2,7 @@ import Table from "./Table";
 import InputFields from "../foodmemories/InputFields";
 import { useState } from "react";
 
-function InputList() {
+export default function InputList() {
   const [currentItem, setCurrentItem] = useState({
     name: "",
     date: "",
@@ -30,5 +30,3 @@ function InputList() {
     </div>
   );
 }
-
-export default InputList;

@@ -1,7 +1,7 @@
 import InputList from "../../src/components/foodmemories/InputList";
 import Title from "../../src/components/foodmemories/Title";
 
-function FoodMemories() {
+export default function FoodMemories() {
   return (
     <div className="App">
       <Title />
@@ -9,5 +9,3 @@ function FoodMemories() {
     </div>
   );
 }
-
-export default FoodMemories;

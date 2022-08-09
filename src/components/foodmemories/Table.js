@@ -1,6 +1,6 @@
 import PropTypes from "prop-types";
 
-function Table({ itemArray }) {
+export default function Table({ itemArray }) {
   return (
     <table>
       <thead>
@@ -31,5 +31,3 @@ function Table({ itemArray }) {
 Table.propTypes = {
   itemArray: PropTypes.array,
 };
-
-export default Table;
