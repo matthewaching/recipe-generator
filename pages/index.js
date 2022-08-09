@@ -5,8 +5,8 @@ export default function App() {
       <h2>This app consists of two related projects:</h2>
       <ol>
         <li>
-          Matt's Food Memories - a database record of all memorable dishes I've
-          eaten or cooked
+          Matt&apos;s Food Memories - a database record of all memorable dishes
+          I have eaten or cooked
         </li>
         <li>
           Recipe Generator - a tool that queries a recipe database and returns a
