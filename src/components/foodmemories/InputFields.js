@@ -1,6 +1,11 @@
 import PropTypes from "prop-types";
 
-function InputFields({ currentItem, setCurrentItem, itemArray, setArray }) {
+export default function InputFields({
+  currentItem,
+  setCurrentItem,
+  itemArray,
+  setArray,
+}) {
   const searchInput = (e) => {
     console.log();
     setCurrentItem({
@@ -67,5 +72,3 @@ InputFields.propTypes = {
   itemArray: PropTypes.array,
   setArray: PropTypes.func,
 };
-
-export default InputFields;

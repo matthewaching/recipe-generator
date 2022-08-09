@@ -1,4 +1,4 @@
-function App() {
+export default function App() {
   return (
     <div className="App">
       <h1>Welcome to my Food App!</h1>
@@ -9,8 +9,8 @@ function App() {
           eaten or cooked
         </li>
         <li>
-          Random Recipe Generator - a tool that queries a recipe database and
-          returns a random entry
+          Recipe Generator - a tool that queries a recipe database and returns a
+          random entry
         </li>
       </ol>
       <h4>
@@ -21,5 +21,3 @@ function App() {
     </div>
   );
 }
-
-export default App;
