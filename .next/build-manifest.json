@@ -29,11 +29,6 @@
       "static/chunks/webpack.js",
       "static/chunks/main.js",
       "static/chunks/pages/foodmemories.js"
-    ],
-    "/recipelookup": [
-      "static/chunks/webpack.js",
-      "static/chunks/main.js",
-      "static/chunks/pages/recipelookup.js"
     ]
   },
   "ampFirstPages": []

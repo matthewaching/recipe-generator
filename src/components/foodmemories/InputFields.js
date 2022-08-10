@@ -1,4 +1,5 @@
 import PropTypes from "prop-types";
+import postDish from "./PostDish";
 
 export default function InputFields({
   currentItem,
@@ -7,7 +8,6 @@ export default function InputFields({
   setArray,
 }) {
   const searchInput = (e) => {
-    console.log();
     setCurrentItem({
       ...currentItem,
       [e.target.id]: e.target.value,
@@ -15,15 +15,16 @@ export default function InputFields({
   };
 
   const addItem = (e) => {
+    const { dishid, name, date, type, meal, cooked } = currentItem;
     e.preventDefault();
-    console.table(currentItem);
-    setArray([...itemArray, currentItem]);
+    postDish(dishid, name, date, type, meal, cooked);
     setCurrentItem({
       name: "",
       date: "",
+      type: "",
       meal: "",
       cooked: "",
-      index: currentItem.index + 1,
+      dishid: currentItem.dishid + 1,
     });
   };
 
@@ -38,6 +39,7 @@ export default function InputFields({
           id="name"
           value={currentItem.name}
           onChange={searchInput}
+          placeholder='"e.g: Spaghetti and meatballs"'
         ></input>
         <label htmlFor="date">Date:</label>
         <input
@@ -45,6 +47,15 @@ export default function InputFields({
           id="date"
           value={currentItem.date}
           onChange={searchInput}
+          placeholder='"e.g: MM/DD/YY"'
+        ></input>
+        <label htmlFor="type">Type:</label>
+        <input
+          type="text"
+          id="type"
+          value={currentItem.type}
+          onChange={searchInput}
+          placeholder='"e.g: Entree"'
         ></input>
         <label htmlFor="meal">Meal:</label>
         <input
@@ -52,6 +63,7 @@ export default function InputFields({
           id="meal"
           value={currentItem.meal}
           onChange={searchInput}
+          placeholder='"e.g: Lunch"'
         ></input>
         <label htmlFor="cooked">Cooked:</label>
         <input
@@ -59,6 +71,7 @@ export default function InputFields({
           id="cooked"
           value={currentItem.cooked}
           onChange={searchInput}
+          placeholder="Yes/No"
         ></input>
       </div>
       <button type="submit">Record Memory</button>

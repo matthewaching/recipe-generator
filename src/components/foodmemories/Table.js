@@ -1,4 +1,7 @@
 import PropTypes from "prop-types";
+import { getDatabase, ref, onValue } from "firebase/database";
+import { database } from "../../firebase-config";
+import { useEffect } from "react";
 
 export default function Table({ itemArray }) {
   return (
@@ -7,23 +10,25 @@ export default function Table({ itemArray }) {
         <tr>
           <th>Name of Dish:</th>
           <th>Date:</th>
+          <th>Type of Dish:</th>
           <th>Mealtime:</th>
-          <th>Cooked?</th>
+          <th>Cooked:</th>
         </tr>
       </thead>
-      <tbody>
+      {/* <tbody>
         {itemArray.map((item) => {
-          const { index, name, date, meal, cooked } = item;
+          const { dishid, name, date, meal, cooked } = item;
           return (
-            <tr className="itemTable" key={index}>
+            <tr className="itemTable" key={dishid}>
               <td>{name}</td>
               <td>{date}</td>
+              <td>{type}</td>
               <td>{meal}</td>
               <td>{cooked}</td>
             </tr>
           );
         })}
-      </tbody>
+      </tbody> */}
     </table>
   );
 }
