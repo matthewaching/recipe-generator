@@ -1,9 +1,8 @@
 import InputList from "../../src/components/foodmemories/InputList";
 import Title from "../../src/components/foodmemories/Title";
-import { getDatabase, onValue, ref, get } from "firebase/database";
+import { onValue, ref } from "firebase/database";
 import { useState, useEffect } from "react";
 import { db } from "../../src/firebase-config";
-import { ConstructionOutlined } from "@mui/icons-material";
 
 export default function FoodMemories() {
   const url = "https://foodmemories-6b5eb-default-rtdb.firebaseio.com/";
@@ -13,8 +12,6 @@ export default function FoodMemories() {
   useEffect(() => {
     return onValue(ref(db), (querySnapShot) => {
       let data = querySnapShot.val() || {};
-      // let dbData = { ...data };
-      console.log(data);
       setDb(data);
     });
   }, []);

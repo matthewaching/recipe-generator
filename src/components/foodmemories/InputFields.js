@@ -1,12 +1,7 @@
 import PropTypes from "prop-types";
 import postDish from "./PostDish";
 
-export default function InputFields({
-  currentItem,
-  setCurrentItem,
-  itemArray,
-  setArray,
-}) {
+export default function InputFields({ currentItem, setCurrentItem }) {
   const searchInput = (e) => {
     setCurrentItem({
       ...currentItem,
@@ -82,6 +77,4 @@ export default function InputFields({
 InputFields.propTypes = {
   currentItem: PropTypes.object,
   setCurrentItem: PropTypes.func,
-  itemArray: PropTypes.array,
-  setArray: PropTypes.func,
 };

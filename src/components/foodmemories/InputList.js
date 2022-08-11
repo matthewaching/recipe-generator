@@ -1,17 +1,20 @@
 import Table from "./Table";
 import InputFields from "../foodmemories/InputFields";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import PropTypes from "prop-types";
 
 export default function InputList({ currentDb }) {
   if (!currentDb) return;
 
+  const idArray = (() => {
+    if (!currentDb.dishes) return 0;
+    return Object.keys(currentDb.dishes);
+  })();
+
   const startId = (() => {
-    const idArray = Object.keys(currentDb.dishes);
     const numArray = idArray
       .map((id) => Number(id))
       .sort((a, b) => (a > b ? -1 : 1));
-    console.log(numArray);
     return numArray[0];
   })();
 
@@ -35,6 +38,7 @@ export default function InputList({ currentDb }) {
         currentItem={currentItem}
         setCurrentItem={setCurrentItem}
         currentDb={currentDb}
+        idArray={idArray}
       />
     </div>
   );

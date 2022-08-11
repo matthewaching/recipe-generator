@@ -9,7 +9,4 @@ export default function postDish(dishid, name, date, type, meal, cooked) {
     meal: meal,
     cooked: cooked,
   });
-  set(ref(db, "dishid/" + (dishid - 1)), {
-    dishid,
-  });
 }

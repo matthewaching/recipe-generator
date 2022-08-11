@@ -1,9 +1,11 @@
 import PropTypes from "prop-types";
-import { getDatabase, ref, onValue } from "firebase/database";
-import { database } from "../../firebase-config";
-import { useEffect } from "react";
 
-export default function Table({ itemArray }) {
+export default function Table({ currentDb, idArray }) {
+  const firstPage = idArray.slice(0, 5);
+  const firstObjects = firstPage.map((dishId) => {
+    return currentDb.dishes[dishId];
+  });
+
   return (
     <table>
       <thead>
@@ -15,9 +17,9 @@ export default function Table({ itemArray }) {
           <th>Cooked:</th>
         </tr>
       </thead>
-      {/* <tbody>
-        {itemArray.map((item) => {
-          const { dishid, name, date, meal, cooked } = item;
+      <tbody>
+        {firstObjects.map((item) => {
+          const { dishid, name, date, meal, type, cooked } = item;
           return (
             <tr className="itemTable" key={dishid}>
               <td>{name}</td>
@@ -28,11 +30,12 @@ export default function Table({ itemArray }) {
             </tr>
           );
         })}
-      </tbody> */}
+      </tbody>
     </table>
   );
 }
 
 Table.propTypes = {
-  itemArray: PropTypes.array,
+  currentDb: PropTypes.object,
+  idArray: PropTypes.array,
 };
