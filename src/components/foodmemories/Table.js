@@ -24,9 +24,6 @@ export default function Table({ currentDb, idArray }) {
           <tr>
             <th>Name of Dish:</th>
             <th>Date:</th>
-            <th>Type of Dish:</th>
-            <th>Mealtime:</th>
-            <th>Cooked:</th>
           </tr>
         </thead>
         <tbody>

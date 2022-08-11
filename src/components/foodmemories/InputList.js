@@ -10,7 +10,6 @@ export default function InputList({ currentDb }) {
     if (!currentDb.dishes) return 0;
     return Object.keys(currentDb.dishes);
   })();
-  console.log(idArray);
 
   const startId = (() => {
     const numArray = idArray
@@ -21,11 +20,6 @@ export default function InputList({ currentDb }) {
 
   const [currentItem, setCurrentItem] = useState({
     dishid: startId + 1,
-    name: "",
-    date: "",
-    type: "",
-    meal: "",
-    cooked: "",
   });
 
   return (

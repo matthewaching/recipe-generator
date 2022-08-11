@@ -10,15 +10,9 @@ export default function InputFields({ currentItem, setCurrentItem }) {
   };
 
   const addItem = (e) => {
-    const { dishid, name, date, type, meal, cooked } = currentItem;
     e.preventDefault();
-    postDish(dishid, name, date, type, meal, cooked);
+    postDish(currentItem);
     setCurrentItem({
-      name: "",
-      date: "",
-      type: "",
-      meal: "",
-      cooked: "",
       dishid: currentItem.dishid + 1,
     });
   };

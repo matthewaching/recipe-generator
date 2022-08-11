@@ -1,12 +1,8 @@
 import { getDatabase, ref, set } from "firebase/database";
 
-export default function postDish(dishid, name, date, type, meal, cooked) {
+export default function postDish(currentItem) {
   const db = getDatabase();
-  set(ref(db, "dishes/" + dishid), {
-    name: name,
-    date: date,
-    type: type,
-    meal: meal,
-    cooked: cooked,
+  set(ref(db, "dishes/" + currentItem.dishid), {
+    ...currentItem,
   });
 }

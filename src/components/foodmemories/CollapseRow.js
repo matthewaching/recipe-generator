@@ -1,4 +1,4 @@
-import { Collapse, Box, Typography } from "@mui/material";
+import { Collapse, Box, Typography, Link } from "@mui/material";
 import React, { useState } from "react";
 
 export default function CollapseRow({ item }) {
@@ -8,11 +8,10 @@ export default function CollapseRow({ item }) {
   return (
     <React.Fragment>
       <tr className="itemTable" key={dishid} onClick={() => setOpen(!open)}>
-        <td>{name}</td>
+        <td>
+          <Link href="/foodmemories/1">{name}</Link>
+        </td>
         <td>{date}</td>
-        <td>{type}</td>
-        <td>{meal}</td>
-        <td>{cooked}</td>
       </tr>
       <tr>
         <Collapse in={open}>
