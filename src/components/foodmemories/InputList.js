@@ -10,6 +10,7 @@ export default function InputList({ currentDb }) {
     if (!currentDb.dishes) return 0;
     return Object.keys(currentDb.dishes);
   })();
+  console.log(idArray);
 
   const startId = (() => {
     const numArray = idArray
