@@ -18,7 +18,7 @@ function NavBar() {
         <Button variant="text">About</Button>
       </Link>
 
-      <Link href="./foodmemories">
+      <Link href="/foodmemories">
         <Button
           variant="text"
           sx={{
@@ -29,7 +29,7 @@ function NavBar() {
         </Button>
       </Link>
 
-      <Link href="./recipelookup">
+      <Link href="/recipelookup">
         <Button variant="text">Recipe Generator</Button>
       </Link>
 
