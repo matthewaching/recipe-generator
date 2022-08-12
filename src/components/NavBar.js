@@ -6,7 +6,7 @@ function NavBar() {
   return (
     <AppBar
       sx={{
-        backgroundColor: "#add8e6",
+        background: "linear-gradient(45deg, lavender, lightblue)",
         display: "flex",
         flexDirection: "row",
         padding: "8px",

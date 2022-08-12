@@ -16,6 +16,11 @@ body {
   margin-top: 36px;
 }
 
+.food-mem {
+  background-image: url(/images/background-noise.png);
+  background-repeat: repeat;
+}
+
 table {
   border-collapse: collapse;
   border: 2px solid rgb(200, 200, 200);

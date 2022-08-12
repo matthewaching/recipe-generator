@@ -30,7 +30,7 @@ export default function FoodMemories() {
   // })();
 
   return (
-    <div className="App">
+    <div className="App food-mem">
       <Title />
       <InputList currentDb={currentDb} />
     </div>
