@@ -16,6 +16,14 @@ body {
   margin-top: 36px;
 }
 
+<<<<<<< HEAD
+=======
+.food-mem {
+  background-image: url(/images/background-noise.png);
+  background-repeat: repeat;
+}
+
+>>>>>>> fb-database
 table {
   border-collapse: collapse;
   border: 2px solid rgb(200, 200, 200);
@@ -23,6 +31,15 @@ table {
   font-size: 1rem;
 }
 
+<<<<<<< HEAD
+=======
+.table-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+>>>>>>> fb-database
 td,
 th {
   border: 1px solid rgb(190, 190, 190);
@@ -65,6 +82,11 @@ form > button {
 .inputs-table-container {
   display: flex;
   flex-direction: column;
+<<<<<<< HEAD
+=======
+  gap: 2rem;
+  margin-top: -16px;
+>>>>>>> fb-database
 }
 
 input[type="text"] {

@@ -10,6 +10,11 @@
 
 # production
 /build
+<<<<<<< HEAD
+=======
+/out
+/.next
+>>>>>>> fb-database
 
 # misc
 .DS_Store
@@ -20,4 +25,9 @@
 
 npm-debug.log*
 yarn-debug.log*
+<<<<<<< HEAD
 yarn-error.log*
+=======
+yarn-error.log*
+git
+>>>>>>> fb-database

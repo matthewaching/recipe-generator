@@ -1,4 +1,5 @@
 import PropTypes from "prop-types";
+<<<<<<< HEAD
 
 export default function InputFields({
   currentItem,
@@ -63,12 +64,47 @@ export default function InputFields({
       </div>
       <button type="submit">Record Memory</button>
     </form>
+=======
+import { Button, Dialog } from "@mui/material";
+import { Restaurant } from "@mui/icons-material";
+import React, { useState } from "react";
+import ItemDialog from "./ItemDialog";
+
+export default function InputFields({ currentItem, setCurrentItem }) {
+  const [open, setOpen] = useState(false);
+
+  return (
+    <React.Fragment>
+      <Button
+        variant="contained"
+        startIcon={<Restaurant />}
+        onClick={() => setOpen(true)}
+        sx={{
+          alignSelf: "center",
+          fontWeight: "strong",
+          borderRadius: "20px",
+        }}
+      >
+        Add Memory
+      </Button>
+      <ItemDialog
+        open={open}
+        setOpen={setOpen}
+        currentItem={currentItem}
+        setCurrentItem={setCurrentItem}
+        buttonFunction="post"
+      />
+    </React.Fragment>
+>>>>>>> fb-database
   );
 }
 
 InputFields.propTypes = {
   currentItem: PropTypes.object,
   setCurrentItem: PropTypes.func,
+<<<<<<< HEAD
   itemArray: PropTypes.array,
   setArray: PropTypes.func,
+=======
+>>>>>>> fb-database
 };
