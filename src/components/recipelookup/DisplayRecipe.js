@@ -1,9 +1,6 @@
 import { Button } from "@mui/material";
 import { useState } from "react";
 import { RecipeCard, EmptyCard } from "./RecipeCard";
-import { Button } from "@mui/material";
-import { useState } from "react";
-import { RecipeCard, EmptyCard } from "./RecipeCard";
 
 export default function DisplayRecipe() {
   const [currentRecipe, setRecipe] = useState({});

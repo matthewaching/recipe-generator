@@ -19,12 +19,6 @@ export default function MyApp({ Component, pageProps }) {
           name="description"
           content="Food Memories Journal and Random Recipe Generator"
         />
-
-        <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
-        <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
-
-        <link rel="manifest" href="/manifest.json" />
-
         <link rel="manifest" href="/manifest.json" />
       </Head>
       <NavBar />

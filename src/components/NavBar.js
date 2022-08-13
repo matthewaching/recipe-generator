@@ -6,11 +6,7 @@ function NavBar() {
   return (
     <AppBar
       sx={{
-<<<<<<< HEAD
-        backgroundColor: "#add8e6",
-=======
         background: "linear-gradient(45deg, lavender, lightblue)",
->>>>>>> fb-database
         display: "flex",
         flexDirection: "row",
         padding: "8px",
@@ -22,11 +18,7 @@ function NavBar() {
         <Button variant="text">About</Button>
       </Link>
 
-<<<<<<< HEAD
-      <Link href="./foodmemories">
-=======
       <Link href="/foodmemories">
->>>>>>> fb-database
         <Button
           variant="text"
           sx={{
@@ -37,11 +29,7 @@ function NavBar() {
         </Button>
       </Link>
 
-<<<<<<< HEAD
-      <Link href="./recipelookup">
-=======
       <Link href="/recipelookup">
->>>>>>> fb-database
         <Button variant="text">Recipe Generator</Button>
       </Link>
 

@@ -20,12 +20,8 @@ Practice on atomic committing and appropriate commenting will be practiced throu
 
 1. Optimize responsivity of input fields
 2. Check stretch element on table
-<<<<<<< HEAD
-3. Grayscale background image
-=======
 3. CSS Backgrounds
 4. Change logic of startid after submitting an edit
->>>>>>> fb-database
 
 ## Planned features
 

@@ -1,20 +1,6 @@
 import Table from "./Table";
 import InputFields from "../foodmemories/InputFields";
 import { useState } from "react";
-<<<<<<< HEAD
-
-export default function InputList() {
-  const [currentItem, setCurrentItem] = useState({
-    name: "",
-    date: "",
-    meal: "",
-    cooked: "",
-    index: 0,
-  });
-
-  const [itemArray, setArray] = useState([]);
-
-=======
 import PropTypes from "prop-types";
 
 export default function InputList({ currentDb }) {
@@ -36,37 +22,23 @@ export default function InputList({ currentDb }) {
     dishid: startId,
   });
 
->>>>>>> fb-database
   return (
     <div className="inputs-table-container">
       <InputFields
         currentItem={currentItem}
         setCurrentItem={setCurrentItem}
-<<<<<<< HEAD
-        itemArray={itemArray}
-        setArray={setArray}
-=======
         currentDb={currentDb}
->>>>>>> fb-database
       />
       <Table
         currentItem={currentItem}
         setCurrentItem={setCurrentItem}
-<<<<<<< HEAD
-        itemArray={itemArray}
-        setArray={setArray}
-=======
         currentDb={currentDb}
         idArray={idArray}
->>>>>>> fb-database
       />
     </div>
   );
 }
-<<<<<<< HEAD
-=======
 
 InputList.propTypes = {
   currentDb: PropTypes.object,
 };
->>>>>>> fb-database
