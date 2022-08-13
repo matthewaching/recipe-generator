@@ -15,11 +15,11 @@ export default function InputList({ currentDb }) {
     const numArray = idArray
       .map((id) => Number(id))
       .sort((a, b) => (a > b ? -1 : 1));
-    return numArray[0];
+    return numArray[0] + 1;
   })();
 
   const [currentItem, setCurrentItem] = useState({
-    dishid: startId + 1,
+    dishid: startId,
   });
 
   return (

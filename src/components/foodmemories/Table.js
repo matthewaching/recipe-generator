@@ -4,7 +4,12 @@ import { Pagination } from "@mui/material";
 
 import CollapseRow from "./CollapseRow";
 
-export default function Table({ currentDb, idArray }) {
+export default function Table({
+  currentItem,
+  setCurrentItem,
+  currentDb,
+  idArray,
+}) {
   if (!idArray) return;
   console.log(idArray);
   const [currentPage, setPage] = useState(1);
@@ -24,11 +29,19 @@ export default function Table({ currentDb, idArray }) {
           <tr>
             <th>Name of Dish:</th>
             <th>Date:</th>
+            <th>Location:</th>
+            <th>Edit</th>
           </tr>
         </thead>
         <tbody>
           {pageObjects.map((item) => {
-            return <CollapseRow item={item} />;
+            return (
+              <CollapseRow
+                item={item}
+                currentItem={currentItem}
+                setCurrentItem={setCurrentItem}
+              />
+            );
           })}
         </tbody>
       </table>

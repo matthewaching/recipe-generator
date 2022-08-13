@@ -76,6 +76,8 @@ form > button {
 .inputs-table-container {
   display: flex;
   flex-direction: column;
+  gap: 2rem;
+  margin-top: -16px;
 }
 
 input[type="text"] {
