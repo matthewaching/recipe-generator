@@ -1,13 +1,5 @@
 import InputList from "../../src/components/foodmemories/InputList";
 import Title from "../../src/components/foodmemories/Title";
-<<<<<<< HEAD
-
-export default function FoodMemories() {
-  return (
-    <div className="App">
-      <Title />
-      <InputList />
-=======
 import { onValue, ref } from "firebase/database";
 import { useState, useEffect } from "react";
 import { db } from "../../src/firebase-config";
@@ -41,7 +33,6 @@ export default function FoodMemories() {
     <div className="App food-mem">
       <Title />
       <InputList currentDb={currentDb} />
->>>>>>> fb-database
     </div>
   );
 }

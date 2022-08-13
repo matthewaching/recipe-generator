@@ -8,23 +8,24 @@ export default function MyApp({ Component, pageProps }) {
     <>
       <Head>
         <title>Matt&apos;s Food App</title>
-<<<<<<< HEAD
+
         <meta charset="utf-8" />
-=======
+
         <meta charSet="utf-8" />
->>>>>>> fb-database
+
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="theme-color" content="#000000" />
         <meta
           name="description"
           content="Food Memories Journal and Random Recipe Generator"
         />
-<<<<<<< HEAD
+
         <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
         <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
-=======
+
         <link rel="manifest" href="/manifest.json" />
->>>>>>> fb-database
+
+        <link rel="manifest" href="/manifest.json" />
       </Head>
       <NavBar />
       <Component {...pageProps} />
