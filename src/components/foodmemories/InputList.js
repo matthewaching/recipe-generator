@@ -1,4 +1,4 @@
-import Table from "./Table";
+import DisplayTable from "./DisplayTable";
 import InputFields from "../foodmemories/InputFields";
 import { useState } from "react";
 import PropTypes from "prop-types";
@@ -29,7 +29,7 @@ export default function InputList({ currentDb }) {
         setCurrentItem={setCurrentItem}
         currentDb={currentDb}
       />
-      <Table
+      <DisplayTable
         currentItem={currentItem}
         setCurrentItem={setCurrentItem}
         currentDb={currentDb}

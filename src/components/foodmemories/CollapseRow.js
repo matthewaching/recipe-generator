@@ -1,4 +1,4 @@
-import { Collapse, Box, Typography } from "@mui/material";
+import { Collapse, Box, Typography, TableRow, TableCell } from "@mui/material";
 import Link from "next/link";
 import React, { useState } from "react";
 import ItemDialog from "./ItemDialog";
@@ -20,12 +20,12 @@ export default function CollapseRow({ item, currentItem, setCurrentItem }) {
 
   return (
     <React.Fragment>
-      <tr
+      <TableRow
         className="itemTable"
         key={dishid}
         onClick={() => setRowOpen(!rowOpen)}
       >
-        <td>
+        <TableCell>
           <Link
             href={{
               pathname: "/foodmemories/detailedview",
@@ -34,20 +34,20 @@ export default function CollapseRow({ item, currentItem, setCurrentItem }) {
           >
             <a>{name}</a>
           </Link>
-        </td>
-        <td>{date}</td>
-        <td>
+        </TableCell>
+        <TableCell>{date}</TableCell>
+        <TableCell>
           {location} ({city})
-        </td>
-        <td onClick={EditItem}>V</td>
-      </tr>
-      <tr>
+        </TableCell>
+        <TableCell onClick={EditItem}>V</TableCell>
+      </TableRow>
+      <TableRow>
         <Collapse in={rowOpen}>
           <Box>
-            <td>Testing</td>
+            <TableCell colSpan="3">Testing</TableCell>
           </Box>
         </Collapse>
-      </tr>
+      </TableRow>
       <ItemDialog
         open={dialogOpen}
         setOpen={setDialogOpen}

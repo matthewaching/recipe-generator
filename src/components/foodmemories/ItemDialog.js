@@ -1,6 +1,7 @@
 import { Dialog, Button } from "@mui/material";
 import { postDish, editDish } from "./dbDish";
 import { Restaurant } from "@mui/icons-material";
+import DialogField from "./DialogField";
 
 export default function ItemDialog({
   open,
@@ -39,52 +40,62 @@ export default function ItemDialog({
   return (
     <Dialog open={open} onClose={handleClose}>
       <form className="searchbar" onSubmit={addItem}>
-        {/* Should consider pulling this component out of the parent and creating a child template with 
-        onChange passed as a prop. Would simplify code if multiple text-based inputs are required. */}
+        <input type="hidden" value="placeholder" />
         <div className="input-container">
-          <label htmlFor="name">Item Name:</label>
-          <input
-            type="text"
-            id="name"
-            value={currentItem.name}
-            onChange={searchInput}
-            placeholder='"e.g: Spaghetti and meatballs"'
-          ></input>
-          <label htmlFor="date">Date:</label>
-          <input
-            type="text"
-            id="date"
-            value={currentItem.date}
-            onChange={searchInput}
-            placeholder='"e.g: MM/DD/YY"'
-          ></input>
-          <label htmlFor="type">Type:</label>
-          <input
-            type="text"
-            id="type"
-            value={currentItem.type}
-            onChange={searchInput}
-            placeholder='"e.g: Entree"'
-          ></input>
-          <label htmlFor="meal">Meal:</label>
-          <input
-            type="text"
-            id="meal"
-            value={currentItem.meal}
-            onChange={searchInput}
-            placeholder='"e.g: Lunch"'
-          ></input>
-          <label htmlFor="cooked">Cooked:</label>
-          <input
-            type="text"
-            id="cooked"
-            value={currentItem.cooked}
-            onChange={searchInput}
-            placeholder="Yes/No"
-          ></input>
+          <DialogField
+            currentItem={currentItem}
+            searchInput={searchInput}
+            field="name"
+            label="Name:"
+          />
+          <DialogField
+            currentItem={currentItem}
+            searchInput={searchInput}
+            field="date"
+            label="Date:"
+          />
+          <DialogField
+            currentItem={currentItem}
+            searchInput={searchInput}
+            field="location"
+            label="Location:"
+          />
+          <DialogField
+            currentItem={currentItem}
+            searchInput={searchInput}
+            field="city"
+            label="City:"
+          />
+          <DialogField
+            currentItem={currentItem}
+            searchInput={searchInput}
+            field="type"
+            label="Type of Dish:"
+          />
+          <DialogField
+            currentItem={currentItem}
+            searchInput={searchInput}
+            field="meal"
+            label="Mealtime:"
+          />
+          <DialogField
+            currentItem={currentItem}
+            searchInput={searchInput}
+            field="cooked"
+            label="Cooked?"
+          />
         </div>
-        <Button variant="outlined" startIcon={<Restaurant />} type="submit">
-          Add Memory
+        <Button
+          variant="contained"
+          startIcon={<Restaurant />}
+          type="submit"
+          sx={{
+            alignSelf: "center",
+            fontWeight: "strong",
+            borderRadius: "20px",
+          }}
+        >
+          Save Memory
         </Button>
       </form>
     </Dialog>

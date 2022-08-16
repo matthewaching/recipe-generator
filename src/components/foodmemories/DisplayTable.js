@@ -1,10 +1,17 @@
 import PropTypes from "prop-types";
 import React, { useState } from "react";
-import { Pagination } from "@mui/material";
+import {
+  Pagination,
+  TableBody,
+  Table,
+  TableHead,
+  TableRow,
+  TableCell,
+} from "@mui/material";
 
 import CollapseRow from "./CollapseRow";
 
-export default function Table({
+export default function DisplayTable({
   currentItem,
   setCurrentItem,
   currentDb,
@@ -24,16 +31,16 @@ export default function Table({
 
   return (
     <div className="table-container">
-      <table>
-        <thead>
-          <tr>
-            <th>Name of Dish:</th>
-            <th>Date:</th>
-            <th>Location:</th>
-            <th>Edit</th>
-          </tr>
-        </thead>
-        <tbody>
+      <Table>
+        <TableHead>
+          <TableRow>
+            <TableCell>Name of Dish:</TableCell>
+            <TableCell>Date:</TableCell>
+            <TableCell>Location:</TableCell>
+            <TableCell>Edit</TableCell>
+          </TableRow>
+        </TableHead>
+        <TableBody>
           {pageObjects.map((item) => {
             return (
               <CollapseRow
@@ -43,8 +50,8 @@ export default function Table({
               />
             );
           })}
-        </tbody>
-      </table>
+        </TableBody>
+      </Table>
       <Pagination
         count={10}
         variant="outlined"
@@ -55,7 +62,7 @@ export default function Table({
   );
 }
 
-Table.propTypes = {
+DisplayTable.propTypes = {
   currentDb: PropTypes.object,
   idArray: PropTypes.array,
 };

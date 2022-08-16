@@ -33,21 +33,17 @@ function RecipeCard({ recipe }) {
     setExpanded(!expanded);
   };
 
-  const prepTime = () => {
+  const prepTime = (() => {
     const prepMin = recipe.readyInMinutes;
     const prepHours = Math.floor(prepMin / 60);
-    const remainderMin = prepMin - (prepHours * 60);
-    if (!prepHours) return (`${remainderMin} minutes`);
-    return `${prepHours} hours and ${remainderMin} minutes`;
-  };
-  
-  }
+    const remainderMin = prepMin - prepHours * 60;
+    if (!prepHours) return `Preparation Time: ${remainderMin} minutes`;
+    return `Preparation Time: ${prepHours} hours and ${remainderMin} minutes`;
+  })();
+
   return (
     <Card sx={{ maxWidth: 345 }}>
-      <CardHeader
-        title={recipe.title}
-        subheader='Preparation Time: '{prepTime}
-      />
+      <CardHeader title={recipe.title} subheader={prepTime} />
       <CardMedia
         component="img"
         height="194"
@@ -64,12 +60,6 @@ function RecipeCard({ recipe }) {
         </Typography>
       </CardContent>
       <CardActions disableSpacing>
-        <IconButton aria-label="add to favorites">
-          <FavoriteIcon />
-        </IconButton>
-        <IconButton aria-label="share">
-          <ShareIcon />
-        </IconButton>
         <ExpandMore
           expand={expanded}
           onClick={handleExpandClick}
@@ -93,7 +83,10 @@ function RecipeCard({ recipe }) {
 function EmptyCard() {
   return (
     <Card sx={{ maxWidth: 345 }}>
-      <CardHeader title="" subheader="Preparation Time:" />
+      <CardHeader
+        title=""
+        subheader="Please press the button to generate a recipe."
+      />
       {/* <CardMedia
         component="img"
         height="194"
