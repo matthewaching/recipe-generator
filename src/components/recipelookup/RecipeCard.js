@@ -33,11 +33,20 @@ function RecipeCard({ recipe }) {
     setExpanded(!expanded);
   };
 
+  const prepTime = () => {
+    const prepMin = recipe.readyInMinutes;
+    const prepHours = Math.floor(prepMin / 60);
+    const remainderMin = prepMin - (prepHours * 60);
+    if (!prepHours) return (`${remainderMin} minutes`);
+    return `${prepHours} hours and ${remainderMin} minutes`;
+  };
+  
+  }
   return (
     <Card sx={{ maxWidth: 345 }}>
       <CardHeader
         title={recipe.title}
-        subheader={`Preparation Time: ${recipe.readyInMinutes} minutes`}
+        subheader='Preparation Time: '{prepTime}
       />
       <CardMedia
         component="img"
