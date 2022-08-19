@@ -9,7 +9,17 @@ import {
 } from "@mui/material";
 import { RamenDining, Egg, ManageSearch } from "@mui/icons-material";
 
-export default function SideBar({ setRecipe, callApi }) {
+export default function SideBar({
+  dishQuery,
+  ingredQuery,
+  setDishQuery,
+  setIngredQuery,
+  callApi,
+}) {
+  const dishInput = (e) => {
+    setDishQuery(e.target.value);
+  };
+
   return (
     <Drawer variant="permanent">
       <Toolbar />
@@ -36,6 +46,8 @@ export default function SideBar({ setRecipe, callApi }) {
             ),
           }}
           variant="standard"
+          onChange={dishInput}
+          value={dishQuery}
         />
         <TextField
           id="ingredient-query"
