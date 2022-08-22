@@ -1,19 +1,19 @@
-import * as React from "react";
-import { styled } from "@mui/material/styles";
-import Card from "@mui/material/Card";
-import CardHeader from "@mui/material/CardHeader";
-import CardMedia from "@mui/material/CardMedia";
-import CardContent from "@mui/material/CardContent";
-import CardActions from "@mui/material/CardActions";
-import Collapse from "@mui/material/Collapse";
-import Avatar from "@mui/material/Avatar";
-import IconButton from "@mui/material/IconButton";
-import Typography from "@mui/material/Typography";
-import { red } from "@mui/material/colors";
-import FavoriteIcon from "@mui/icons-material/Favorite";
-import ShareIcon from "@mui/icons-material/Share";
+import { useState } from "react";
+import {
+  styled,
+  Card,
+  CardHeader,
+  CardMedia,
+  CardContent,
+  CardActions,
+  Collapse,
+  Divider,
+  IconButton,
+  Typography,
+  ListItem,
+  List,
+} from "@mui/material";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-import MoreVertIcon from "@mui/icons-material/MoreVert";
 
 const ExpandMore = styled((props) => {
   const { expand, ...other } = props;
@@ -27,10 +27,20 @@ const ExpandMore = styled((props) => {
 }));
 
 function RecipeCard({ recipe }) {
-  const [expanded, setExpanded] = React.useState(false);
+  const [ingredExpand, setIngredExpand] = useState(false);
+  const [instructExpand, setInstructExpand] = useState(false);
+  const [linkExpand, setLinkExpand] = useState(false);
 
-  const handleExpandClick = () => {
-    setExpanded(!expanded);
+  const expandIngred = () => {
+    setIngredExpand(!ingredExpand);
+  };
+
+  const expandInstruct = () => {
+    setInstructExpand(!instructExpand);
+  };
+
+  const expandLink = () => {
+    setLinkExpand(!linkExpand);
   };
 
   const prepTime = (() => {
@@ -42,7 +52,7 @@ function RecipeCard({ recipe }) {
   })();
 
   return (
-    <Card sx={{ maxWidth: 345 }}>
+    <Card sx={{ minWidth: 345, maxWidth: 450 }}>
       <CardHeader title={recipe.title} subheader={prepTime} />
       <CardMedia
         component="img"
@@ -50,26 +60,75 @@ function RecipeCard({ recipe }) {
         image={recipe.image}
         alt={recipe.title}
       />
-      <CardContent>
-        <Typography variant="body2" color="text.secondary">
-          {recipe.extendedIngredients.map((ingredient) => {
-            return (
-              <li>{`${ingredient.measures.us.amount} ${ingredient.unit} ${ingredient.name}`}</li>
-            );
-          })}
-        </Typography>
-      </CardContent>
       <CardActions disableSpacing>
         <ExpandMore
-          expand={expanded}
-          onClick={handleExpandClick}
-          aria-expanded={expanded}
+          expand={ingredExpand}
+          onClick={expandIngred}
+          aria-expanded={ingredExpand}
           aria-label="show more"
         >
+          <Typography>Ingredients</Typography>
           <ExpandMoreIcon />
         </ExpandMore>
       </CardActions>
-      <Collapse in={expanded} timeout="auto" unmountOnExit>
+      <Collapse in={ingredExpand} timeout="auto" unmountOnExit>
+        <CardContent>
+          <Typography variant="body2" color="text.secondary" align="left">
+            <ul>
+              {recipe.extendedIngredients.map((ingredient) => {
+                return (
+                  <li
+                    key={ingredient.id}
+                    // >{`${ingredient.measures.us.amount} ${ingredient.unit} ${ingredient.name}`}</li>
+                  >
+                    {ingredient.original}
+                  </li>
+                );
+              })}
+            </ul>
+          </Typography>
+        </CardContent>
+      </Collapse>
+      <CardActions disableSpacing>
+        <ExpandMore
+          expand={instructExpand}
+          onClick={expandInstruct}
+          aria-expanded={instructExpand}
+          aria-label="show more"
+        >
+          <Typography>Instructions</Typography>
+
+          <ExpandMoreIcon />
+        </ExpandMore>
+      </CardActions>
+      <Collapse in={instructExpand} timeout="auto" unmountOnExit>
+        <CardContent>
+          <Typography variant="body2" color="text.secondary" align="left">
+            <List>
+              {recipe.analyzedInstructions[0].steps.map((instruction) => {
+                return (
+                  <ListItem key={instruction.number}>
+                    {`${instruction.number}. ${instruction.step}`}
+                  </ListItem>
+                );
+              })}
+            </List>
+          </Typography>
+        </CardContent>
+      </Collapse>
+      <CardActions disableSpacing>
+        <ExpandMore
+          expand={linkExpand}
+          onClick={expandLink}
+          aria-expanded={linkExpand}
+          aria-label="show more"
+        >
+          <Typography>Source</Typography>
+          <ExpandMoreIcon />
+        </ExpandMore>
+      </CardActions>
+      <Collapse in={linkExpand} timeout="auto" unmountOnExit>
+        <Divider />
         <CardContent>
           <Typography paragraph>
             <a href={recipe.spoonacularSourceUrl}>Link to original recipe</a>
