@@ -3,7 +3,7 @@ import { useState } from "react";
 import { RecipeCard, EmptyCard } from "./RecipeCard";
 
 export default function DisplayRecipe({ currentRecipe }) {
-  if (!currentRecipe.title) {
+  if (!currentRecipe || !currentRecipe.title) {
     return (
       <div>
         <EmptyCard />

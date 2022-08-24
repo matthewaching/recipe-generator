@@ -20,6 +20,10 @@ export default function SideBar({
     setDishQuery(e.target.value);
   };
 
+  const ingredInput = (e) => {
+    setIngredQuery(e.target.value);
+  };
+
   return (
     <Drawer variant="permanent">
       <Toolbar />
@@ -60,6 +64,8 @@ export default function SideBar({
             ),
           }}
           variant="standard"
+          onChange={ingredInput}
+          value={ingredQuery}
         />
         <Divider
           sx={{

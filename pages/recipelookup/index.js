@@ -5,7 +5,7 @@ import { useState } from "react";
 import { Box } from "@mui/material";
 
 const initUrl =
-  "https://api.spoonacular.com/recipes/complexSearch?sort=random&addRecipeInformation=true&fillIngredients=true&limit=1`";
+  "https://api.spoonacular.com/recipes/complexSearch?sort=random&addRecipeInformation=true&fillIngredients=true&number=20";
 
 const ApiKey = "&apiKey=34638b0a66394dec9ee3da6fab1e6423";
 
@@ -21,6 +21,15 @@ export default function RecipeLookup() {
   const callApi = async () => {
     const url = initUrl;
     if (dishQuery) url += `&query=${dishQuery}`;
+    if (ingredQuery) {
+      url += "&includeIngredients=";
+      if (ingredQuery.includes(",")) {
+        const correctedQuery = ingredQuery.replace(/\s+/g, "");
+        url += correctedQuery;
+      } else {
+        url += ingredQuery;
+      }
+    }
     url += ApiKey;
     console.log(url);
     const res = await fetch(url);
