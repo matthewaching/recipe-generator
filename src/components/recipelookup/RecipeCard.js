@@ -13,18 +13,33 @@ import {
   ListItem,
   List,
 } from "@mui/material";
+import { ExpandMore, ExpandLess } from "@mui/icons-material";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 
-const ExpandMore = styled((props) => {
+const ExpandMe = styled((props) => {
   const { expand, ...other } = props;
   return <IconButton {...other} />;
 })(({ theme, expand }) => ({
   transform: !expand ? "rotate(0deg)" : "rotate(180deg)",
   marginLeft: "auto",
-  transition: theme.transitions.create("transform", {
-    duration: theme.transitions.duration.shortest,
-  }),
 }));
+
+function ExpandToggle(props) {
+  const { expand, section, ...other } = props;
+  if (expand)
+    return (
+      <IconButton>
+        <Typography>{section}</Typography>
+        <ExpandLess {...other} aria-label="show more" />
+      </IconButton>
+    );
+  return (
+    <IconButton>
+      <Typography>{section}</Typography>
+      <ExpandMore {...other} aria-label="show more" />
+    </IconButton>
+  );
+}
 
 function RecipeCard({ recipe }) {
   const [ingredExpand, setIngredExpand] = useState(false);
@@ -60,46 +75,30 @@ function RecipeCard({ recipe }) {
         image={recipe.image}
         alt={recipe.title}
       />
-      <CardActions disableSpacing>
-        <ExpandMore
+      <CardActions onClick={expandIngred}>
+        <ExpandToggle
           expand={ingredExpand}
-          onClick={expandIngred}
           aria-expanded={ingredExpand}
-          aria-label="show more"
-        >
-          <Typography>Ingredients</Typography>
-          <ExpandMoreIcon />
-        </ExpandMore>
+          section="Ingredients"
+        ></ExpandToggle>
       </CardActions>
       <Collapse in={ingredExpand} timeout="auto" unmountOnExit>
         <CardContent>
           <Typography variant="body2" color="text.secondary" align="left">
             <ul>
               {recipe.extendedIngredients.map((ingredient) => {
-                return (
-                  <li
-                    key={ingredient.id}
-                    // >{`${ingredient.measures.us.amount} ${ingredient.unit} ${ingredient.name}`}</li>
-                  >
-                    {ingredient.original}
-                  </li>
-                );
+                return <li key={ingredient.id}>{ingredient.original}</li>;
               })}
             </ul>
           </Typography>
         </CardContent>
       </Collapse>
-      <CardActions disableSpacing>
-        <ExpandMore
+      <CardActions onClick={expandInstruct}>
+        <ExpandToggle
           expand={instructExpand}
-          onClick={expandInstruct}
           aria-expanded={instructExpand}
-          aria-label="show more"
-        >
-          <Typography>Instructions</Typography>
-
-          <ExpandMoreIcon />
-        </ExpandMore>
+          section="Instructions"
+        ></ExpandToggle>
       </CardActions>
       <Collapse in={instructExpand} timeout="auto" unmountOnExit>
         <CardContent>
@@ -116,16 +115,12 @@ function RecipeCard({ recipe }) {
           </Typography>
         </CardContent>
       </Collapse>
-      <CardActions disableSpacing>
-        <ExpandMore
+      <CardActions onClick={expandLink}>
+        <ExpandToggle
           expand={linkExpand}
-          onClick={expandLink}
           aria-expanded={linkExpand}
-          aria-label="show more"
-        >
-          <Typography>Source</Typography>
-          <ExpandMoreIcon />
-        </ExpandMore>
+          section="Source"
+        ></ExpandToggle>
       </CardActions>
       <Collapse in={linkExpand} timeout="auto" unmountOnExit>
         <Divider />

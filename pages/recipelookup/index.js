@@ -38,7 +38,13 @@ export default function RecipeLookup() {
         setIngredQuery={setIngredQuery}
         callApi={callApi}
       />
-      <Box>
+      <Box
+        sx={{
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+        }}
+      >
         <Title />
         <DisplayRecipe currentRecipe={currentRecipe} />
       </Box>
