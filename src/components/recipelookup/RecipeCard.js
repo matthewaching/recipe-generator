@@ -58,6 +58,30 @@ function RecipeCard({ recipe }) {
     setLinkExpand(!linkExpand);
   };
 
+  function InstructList() {
+    if (!recipe.analyzedInstructions[0].steps)
+      return <Typography>No Instructions Provided</Typography>;
+    return (
+      <Typography variant="body2" color="text.secondary" align="left">
+        <List
+          sx={{
+            pt: 0,
+            pb: 0,
+            mt: "-1rem",
+          }}
+        >
+          {recipe.analyzedInstructions[0].steps.map((instruction) => {
+            return (
+              <ListItem key={instruction.number}>
+                {`${instruction.number}. ${instruction.step}`}
+              </ListItem>
+            );
+          })}
+        </List>
+      </Typography>
+    );
+  }
+
   const prepTime = (() => {
     const prepMin = recipe.readyInMinutes;
     const prepHours = Math.floor(prepMin / 60);
@@ -67,11 +91,11 @@ function RecipeCard({ recipe }) {
   })();
 
   return (
-    <Card sx={{ minWidth: 345, maxWidth: 450 }}>
+    <Card sx={{ width: 450 }}>
       <CardHeader title={recipe.title} subheader={prepTime} />
       <CardMedia
         component="img"
-        height="194"
+        height="235"
         image={recipe.image}
         alt={recipe.title}
       />
@@ -85,14 +109,31 @@ function RecipeCard({ recipe }) {
       <Collapse in={ingredExpand} timeout="auto" unmountOnExit>
         <CardContent>
           <Typography variant="body2" color="text.secondary" align="left">
-            <ul>
+            <List
+              sx={{
+                listStyleType: "disc",
+                pl: "2rem",
+                pt: 0,
+                pb: 0,
+                mt: "-1rem",
+              }}
+            >
               {recipe.extendedIngredients.map((ingredient) => {
-                return <li key={ingredient.id}>{ingredient.original}</li>;
+                return (
+                  <ListItem
+                    key={ingredient.id}
+                    disableGutters
+                    sx={{ display: "list-item" }}
+                  >
+                    {ingredient.original}
+                  </ListItem>
+                );
               })}
-            </ul>
+            </List>
           </Typography>
         </CardContent>
       </Collapse>
+      <Divider />
       <CardActions onClick={expandInstruct}>
         <ExpandToggle
           expand={instructExpand}
@@ -102,19 +143,10 @@ function RecipeCard({ recipe }) {
       </CardActions>
       <Collapse in={instructExpand} timeout="auto" unmountOnExit>
         <CardContent>
-          <Typography variant="body2" color="text.secondary" align="left">
-            <List>
-              {recipe.analyzedInstructions[0].steps.map((instruction) => {
-                return (
-                  <ListItem key={instruction.number}>
-                    {`${instruction.number}. ${instruction.step}`}
-                  </ListItem>
-                );
-              })}
-            </List>
-          </Typography>
+          <InstructList />
         </CardContent>
       </Collapse>
+      <Divider />
       <CardActions onClick={expandLink}>
         <ExpandToggle
           expand={linkExpand}
@@ -123,7 +155,6 @@ function RecipeCard({ recipe }) {
         ></ExpandToggle>
       </CardActions>
       <Collapse in={linkExpand} timeout="auto" unmountOnExit>
-        <Divider />
         <CardContent>
           <Typography paragraph>
             <a href={recipe.spoonacularSourceUrl}>Link to original recipe</a>
