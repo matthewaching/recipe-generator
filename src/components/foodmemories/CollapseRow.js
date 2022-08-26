@@ -19,7 +19,7 @@ export default function CollapseRow({ item, currentItem, setCurrentItem }) {
   }
 
   return (
-    <React.Fragment>
+    <>
       <TableRow
         className="itemTable"
         key={dishid}
@@ -42,11 +42,13 @@ export default function CollapseRow({ item, currentItem, setCurrentItem }) {
         <TableCell onClick={EditItem}>V</TableCell>
       </TableRow>
       <TableRow>
-        <Collapse in={rowOpen}>
-          <Box>
-            <TableCell colSpan="3">Testing</TableCell>
-          </Box>
-        </Collapse>
+        <TableCell sx={{ pt: 0, pb: 0 }} colSpan={4}>
+          <Collapse in={rowOpen}>
+            <Box sx={{ pt: "1rem", pb: "1rem" }}>
+              <Typography>Testing</Typography>
+            </Box>
+          </Collapse>
+        </TableCell>
       </TableRow>
       <ItemDialog
         open={dialogOpen}
@@ -57,6 +59,6 @@ export default function CollapseRow({ item, currentItem, setCurrentItem }) {
         buttonFunction="edit"
         savedId={savedId}
       />
-    </React.Fragment>
+    </>
   );
 }
