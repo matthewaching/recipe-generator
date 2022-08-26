@@ -23,6 +23,20 @@ body {
   flex-shrink: 0;
 }
 
+.recipe {
+  font-family: Georgia, "Times New Roman", Times, serif;
+  text-align: center;
+  background-image: linear-gradient(lavender, lightblue);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: black;
+  padding-top: 36px;
+  margin-top: 36px;
+}
+
 .food-mem {
   background-image: url(/images/background-noise.png);
   background-repeat: repeat;

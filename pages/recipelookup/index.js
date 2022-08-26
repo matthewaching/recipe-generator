@@ -3,6 +3,7 @@ import Title from "../../src/components/recipelookup/Title";
 import DisplayRecipe from "../../src/components/recipelookup/DisplayRecipe";
 import { useState } from "react";
 import { Box } from "@mui/material";
+import { Toolbar } from "@mui/material";
 
 const initUrl =
   "https://api.spoonacular.com/recipes/complexSearch?sort=random&addRecipeInformation=true&fillIngredients=true&number=20";
@@ -39,7 +40,7 @@ export default function RecipeLookup() {
   };
 
   return (
-    <Box className="App">
+    <Box className="recipe">
       <SideBar
         dishQuery={dishQuery}
         ingredQuery={ingredQuery}
@@ -53,7 +54,9 @@ export default function RecipeLookup() {
           flexDirection: "column",
           alignItems: "center",
         }}
+        component="main"
       >
+        <Toolbar />
         <Title />
         <DisplayRecipe currentRecipe={currentRecipe} />
       </Box>

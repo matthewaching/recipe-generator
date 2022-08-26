@@ -24,8 +24,16 @@ export default function SideBar({
     setIngredQuery(e.target.value);
   };
 
+  const drawerWidth = "calc(5rem + 20vw)";
   return (
-    <Drawer variant="permanent">
+    <Drawer
+      variant="permanent"
+      sx={{
+        width: drawerWidth,
+        flexShrink: 0,
+        [`& .MuiDrawer-paper`]: { width: drawerWidth, boxSizing: "border-box" },
+      }}
+    >
       <Toolbar />
       <Box
         sx={{
