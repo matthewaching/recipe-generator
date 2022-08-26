@@ -5,7 +5,6 @@ import ItemDialog from "./ItemDialog";
 
 export default function CollapseRow({ item, currentItem, setCurrentItem }) {
   const { dishid, name, date, location, city } = item;
-  console.log(item);
   const [rowOpen, setRowOpen] = useState(false);
   const [dialogOpen, setDialogOpen] = useState(false);
   const [savedId, setSavedId] = useState();

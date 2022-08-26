@@ -2,6 +2,7 @@ import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import { onValue, ref } from "firebase/database";
 import { db } from "../../../src/firebase-config";
+import { Box, Divider, Typography } from "@mui/material";
 
 export default function DetailedView() {
   const router = useRouter();
@@ -14,20 +15,30 @@ export default function DetailedView() {
     return onValue(ref(db), (querySnapShot) => {
       let data = querySnapShot.val() || {};
       setItem(data.dishes[router.query.dish]);
-      console.log(data.dishes[router.query.dish]);
     });
   }, [router.isReady, router.query]);
 
   if (!pageItem) return;
 
   return (
-    <div className="App">
-      <h1>{pageItem.name}</h1>
-      <p>Date: {pageItem.date}</p>
-      <p>Location: {pageItem.location}</p>
-      <p>City: {pageItem.city}</p>
-      <p>Mealtime: {pageItem.meal}</p>
-      <p>Type of Dish: {pageItem.type}</p>
-    </div>
+    <Box
+      className="App"
+      sx={{
+        gap: "2rem",
+      }}
+    >
+      <Typography variant="h2" sx={{ pt: "1rem" }}>
+        {pageItem.name}
+      </Typography>
+      <Typography variant="subtitle1">
+        Experienced on: {pageItem.date}
+      </Typography>
+      <Divider sx={{ alignSelf: "stretch" }} />
+      <Typography variant="body1">Location: {pageItem.location}</Typography>
+      <Typography variant="body1">City: {pageItem.city}</Typography>
+      <Typography variant="body1">Mealtime: {pageItem.meal}</Typography>
+      <Typography variant="body1">Type of Dish: {pageItem.type}</Typography>
+    </Box>
   );
 }
+``;

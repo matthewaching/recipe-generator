@@ -1,10 +1,10 @@
 # food-memories
 
-A simple CRUD app to document culinary experiences
+A two-part web app to document culinary experiences
 
 ## Project Abstraction
 
-This project seeks to create a fully-functioning web app that documents culinary experiences. The app will consist of an aesthetically-designed front-end constructed from React and Bootstrap and a back-end that saves entries via Firebase. The web directory will initially consist of a landing page that renders a search bar with different filtering options as well as a table that retrieves the 10 most recent entries with page navigation at its footer. Opening an entry should direct the user to a unique page that lists information related to the entry, including but not limited to name, country of origin, date(s) experienced, whether the item was cooked or dined, pictures of the dish, recipe log of the dish, etc.
+This project seeks to create a fully-functioning web app that documents culinary experiences. The app consists of an aesthetically-designed front-end constructed from React and Material UI and a Next.js back-end that saves entries via Firebase. The web directory will initially consist of a landing page that renders a search bar with different filtering options as well as a table that retrieves the 10 most recent entries with page navigation at its footer. Opening an entry should direct the user to a unique page that lists information related to the entry, including but not limited to name, country of origin, date(s) experienced, whether the item was cooked or dined, pictures of the dish, recipe log of the dish, etc.
 
 ## Front-end Abstraction
 
