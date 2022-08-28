@@ -52,42 +52,44 @@ export default function App() {
             <Typography></Typography>
           </Box>
         </Link>
-        <Box
-          sx={{
-            cursor: "pointer",
-            border: "2px solid black",
-            borderRadius: "15px",
-            height: "200px",
-            width: "300px",
-            display: "flex",
-            flexDirection: "column",
-            justifyContent: "center",
-            alignItems: "center",
-            padding: "16px",
-            gap: "8px",
-          }}
-        >
+        <Link href="/recipelookup">
           <Box
             sx={{
+              cursor: "pointer",
+              border: "2px solid black",
+              borderRadius: "15px",
+              height: "200px",
+              width: "300px",
               display: "flex",
-              gap: "10px",
+              flexDirection: "column",
+              justifyContent: "center",
+              alignItems: "center",
+              padding: "16px",
+              gap: "8px",
             }}
           >
-            <ManageSearch fontSize="large" />
-            <Typography
+            <Box
               sx={{
-                fontSize: "24px",
-                fontWeight: "bold",
+                display: "flex",
+                gap: "10px",
               }}
             >
-              Recipe Generator
+              <ManageSearch fontSize="large" />
+              <Typography
+                sx={{
+                  fontSize: "24px",
+                  fontWeight: "bold",
+                }}
+              >
+                Recipe Generator
+              </Typography>
+            </Box>
+            <Typography>
+              A tool that queries a recipe API for a random entry
             </Typography>
+            <Typography></Typography>
           </Box>
-          <Typography>
-            A tool that queries a recipe API for a random entry
-          </Typography>
-          <Typography></Typography>
-        </Box>
+        </Link>
       </Box>
       <Typography variant="body1">
         This app was constructed with React inside a Next.js framework.

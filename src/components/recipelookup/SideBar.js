@@ -24,7 +24,7 @@ export default function SideBar({
     setIngredQuery(e.target.value);
   };
 
-  const drawerWidth = "calc(5rem + 20vw)";
+  const drawerWidth = "calc(3rem + 10vw)";
   return (
     <Drawer
       variant="permanent"
@@ -77,7 +77,7 @@ export default function SideBar({
         />
         <Divider
           sx={{
-            mb: "48px",
+            mb: "72px",
           }}
         />
         <Button
