@@ -17,7 +17,8 @@ function NavBar() {
       <Toolbar
         className="toolbar"
         sx={{
-          gap: "16px",
+          gap: "24px",
+          alignItems: "center",
         }}
       >
         <Link href="/">
@@ -25,35 +26,43 @@ function NavBar() {
         </Link>
 
         <Link href="/foodmemories">
-          <Button
-            variant="text"
-            sx={{
-              marginLeft: "auto",
-            }}
-          >
-            Food Memories
-          </Button>
+          <Button variant="text">Food Memories</Button>
         </Link>
 
         <Link href="/recipelookup">
           <Button variant="text">Recipe Generator</Button>
         </Link>
 
-        <Box className="gitlink">
+        <Box
+          sx={{
+            ml: "auto",
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+          }}
+        >
+          <Link href="/login">
+            <AccountCircle
+              htmlColor="white"
+              sx={{ fontSize: "60px", alignSelf: "center", mt: "0px" }}
+            />
+          </Link>
+        </Box>
+
+        <Box
+          sx={{
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+          }}
+        >
           <a href="https://github.com/matthewaching/food-memories">
             <GitHub
               htmlColor="white"
-              sx={{ fontSize: "54px", alignSelf: "center" }}
+              sx={{ fontSize: "54px", alignSelf: "center", mt: "2px" }}
             />
           </a>
         </Box>
-
-        {/* <a
-          className="gitlink"
-          href="https://github.com/matthewaching/food-memories"
-        >
-          <img src="/images/gitlight.png" alt="github logo" />
-        </a> */}
       </Toolbar>
     </AppBar>
   );
