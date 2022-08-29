@@ -123,10 +123,9 @@ input[type="text"]:focus {
 .gitlink {
   margin-left: auto;
   display: flex;
-  max-height: 100%;
-  align-self: stretch;
-  justify-content: end;
-  padding: 6px;
+  justify-content: center;
+  align-items: center;
+  padding-top: 2px;
 }
 
 .gitlink img {
@@ -135,5 +134,4 @@ input[type="text"]:focus {
 
 .toolbar {
   height: auto;
-  padding: 8px;
 }

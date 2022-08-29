@@ -20,8 +20,8 @@ export default function App() {
               cursor: "pointer",
               border: "2px solid black",
               borderRadius: "15px",
-              height: "200px",
-              width: "300px",
+              height: "20vh",
+              width: "30vw",
               display: "flex",
               flexDirection: "column",
               justifyContent: "center",
@@ -33,7 +33,7 @@ export default function App() {
             <Box
               sx={{
                 display: "flex",
-                gap: "10px",
+                gap: ".75rem",
               }}
             >
               <DinnerDining fontSize="large" />
@@ -58,8 +58,8 @@ export default function App() {
               cursor: "pointer",
               border: "2px solid black",
               borderRadius: "15px",
-              height: "200px",
-              width: "300px",
+              height: "20vh",
+              width: "30vw",
               display: "flex",
               flexDirection: "column",
               justifyContent: "center",
@@ -71,7 +71,7 @@ export default function App() {
             <Box
               sx={{
                 display: "flex",
-                gap: "10px",
+                gap: ".75rem",
               }}
             >
               <ManageSearch fontSize="large" />

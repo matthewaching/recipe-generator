@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { AppBar, Box, Button, Toolbar } from "@mui/material";
+import { GitHub, AccountCircle } from "@mui/icons-material";
 
 function NavBar() {
   return (
@@ -38,12 +39,21 @@ function NavBar() {
           <Button variant="text">Recipe Generator</Button>
         </Link>
 
-        <a
+        <Box className="gitlink">
+          <a href="https://github.com/matthewaching/food-memories">
+            <GitHub
+              htmlColor="white"
+              sx={{ fontSize: "54px", alignSelf: "center" }}
+            />
+          </a>
+        </Box>
+
+        {/* <a
           className="gitlink"
           href="https://github.com/matthewaching/food-memories"
         >
           <img src="/images/gitlight.png" alt="github logo" />
-        </a>
+        </a> */}
       </Toolbar>
     </AppBar>
   );
