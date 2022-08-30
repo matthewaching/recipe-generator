@@ -41,12 +41,12 @@ function NavBar() {
             alignItems: "center",
           }}
         >
-          <Link href="/login">
+          <Button href="/login">
             <AccountCircle
               htmlColor="white"
               sx={{ fontSize: "60px", alignSelf: "center", mt: "0px" }}
             />
-          </Link>
+          </Button>
         </Box>
 
         <Box

@@ -56,7 +56,6 @@ export default function RecipeLookup() {
         }}
         component="main"
       >
-        <Toolbar />
         <Title />
         <DisplayRecipe currentRecipe={currentRecipe} />
       </Box>

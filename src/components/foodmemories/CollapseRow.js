@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import ItemDialog from "./ItemDialog";
 
 export default function CollapseRow({ item, currentItem, setCurrentItem }) {
-  const { dishid, name, date, location, city } = item;
+  const { dishid, name, date, location, city, type, meal, cooked } = item;
   const [rowOpen, setRowOpen] = useState(false);
   const [dialogOpen, setDialogOpen] = useState(false);
   const [savedId, setSavedId] = useState();
@@ -44,7 +44,9 @@ export default function CollapseRow({ item, currentItem, setCurrentItem }) {
         <TableCell sx={{ pt: 0, pb: 0 }} colSpan={4}>
           <Collapse in={rowOpen}>
             <Box sx={{ pt: "1rem", pb: "1rem" }}>
-              <Typography>Testing</Typography>
+              <Typography variant="body2">
+                This dish was a {meal.toLowerCase()} {type.toLowerCase()}.
+              </Typography>
             </Box>
           </Collapse>
         </TableCell>

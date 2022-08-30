@@ -20,6 +20,14 @@ export default function DetailedView() {
 
   if (!pageItem) return;
 
+  const wasCooked = (() => {
+    if (pageItem.cooked === "Yes") {
+      return "cooked.";
+    } else {
+      return "not cooked.";
+    }
+  })();
+
   return (
     <Box
       className="App"
@@ -38,6 +46,7 @@ export default function DetailedView() {
       <Typography variant="body1">City: {pageItem.city}</Typography>
       <Typography variant="body1">Mealtime: {pageItem.meal}</Typography>
       <Typography variant="body1">Type of Dish: {pageItem.type}</Typography>
+      <Typography variant="body1">This dish was {wasCooked}</Typography>
     </Box>
   );
 }
