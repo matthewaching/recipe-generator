@@ -1,9 +1,10 @@
 import { Box, Typography } from "@mui/material";
+import SignIn from "../../src/components/login/SignIn";
 
 export default function Login() {
   return (
     <Box className="App">
-      <Typography>Please login to access database credentials.</Typography>
+      <SignIn />
     </Box>
   );
 }
