@@ -1,5 +1,5 @@
 import { Box, Typography } from "@mui/material";
-import InputFields from "./InputFields";
+import DialogButton from "./DialogButton";
 export default function Hero({ currentItem, setCurrentItem, currentDb }) {
   return (
     <Box
@@ -10,7 +10,6 @@ export default function Hero({ currentItem, setCurrentItem, currentDb }) {
         justifyContent: "center",
         alignItems: "center",
         height: "30vh",
-        backgroundColor: "white",
         gap: "7rem",
       }}
     >
@@ -51,7 +50,7 @@ export default function Hero({ currentItem, setCurrentItem, currentDb }) {
           Memories
         </Typography>
       </Box>
-      <InputFields
+      <DialogButton
         currentItem={currentItem}
         setCurrentItem={setCurrentItem}
         currentDb={currentDb}

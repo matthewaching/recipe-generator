@@ -1,4 +1,4 @@
-import InputList from "../../src/components/foodmemories/InputList";
+import MemoryTable from "../../src/components/foodmemories/MemoryTable";
 import Hero from "../../src/components/foodmemories/Hero";
 import { onValue, ref } from "firebase/database";
 import { useState, useEffect } from "react";
@@ -48,7 +48,7 @@ export default function FoodMemories() {
         setCurrentItem={setCurrentItem}
         currentDb={currentDb}
       />
-      <InputList
+      <MemoryTable
         currentItem={currentItem}
         setCurrentItem={setCurrentItem}
         currentDb={currentDb}

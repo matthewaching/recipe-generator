@@ -2,9 +2,9 @@ import PropTypes from "prop-types";
 import { Button, Typography, Box } from "@mui/material";
 import { Restaurant } from "@mui/icons-material";
 import React, { useState } from "react";
-import ItemDialog from "./ItemDialog";
+import DialogPopup from "./DialogPopup";
 
-export default function InputFields({ currentItem, setCurrentItem }) {
+export default function DialogButton({ currentItem, setCurrentItem }) {
   const [open, setOpen] = useState(false);
 
   return (
@@ -33,7 +33,7 @@ export default function InputFields({ currentItem, setCurrentItem }) {
         </Box>
         <Typography>Memory</Typography>
       </Button>
-      <ItemDialog
+      <DialogPopup
         open={open}
         setOpen={setOpen}
         currentItem={currentItem}
@@ -44,7 +44,7 @@ export default function InputFields({ currentItem, setCurrentItem }) {
   );
 }
 
-InputFields.propTypes = {
+DialogButton.propTypes = {
   currentItem: PropTypes.object,
   setCurrentItem: PropTypes.func,
 };

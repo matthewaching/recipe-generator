@@ -3,7 +3,7 @@ import { postDish, editDish } from "./dbDish";
 import { Restaurant } from "@mui/icons-material";
 import DialogField from "./DialogField";
 
-export default function ItemDialog({
+export default function DialogPopup({
   open,
   setOpen,
   currentItem,

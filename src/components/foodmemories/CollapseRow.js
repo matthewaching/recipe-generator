@@ -1,7 +1,7 @@
 import { Collapse, Box, Typography, TableRow, TableCell } from "@mui/material";
 import Link from "next/link";
 import React, { useState } from "react";
-import ItemDialog from "./ItemDialog";
+import DialogPopup from "./DialogPopup";
 
 export default function CollapseRow({ item, currentItem, setCurrentItem }) {
   const { dishid, name, date, location, city, type, meal, cooked } = item;
@@ -51,7 +51,7 @@ export default function CollapseRow({ item, currentItem, setCurrentItem }) {
           </Collapse>
         </TableCell>
       </TableRow>
-      <ItemDialog
+      <DialogPopup
         open={dialogOpen}
         setOpen={setDialogOpen}
         currentItem={currentItem}
