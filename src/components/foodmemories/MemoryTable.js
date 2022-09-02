@@ -52,6 +52,7 @@ export default function MemoryTable({
           width: "50vw",
           p: "24px",
           gap: "8px",
+          mb: "4rem",
         }}
       >
         <Table>
