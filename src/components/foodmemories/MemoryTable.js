@@ -60,7 +60,6 @@ export default function MemoryTable({
               <TableCell>Name of Dish:</TableCell>
               <TableCell>Date:</TableCell>
               <TableCell>Location:</TableCell>
-              <TableCell>Edit</TableCell>
             </TableRow>
           </TableHead>
           <TableBody>

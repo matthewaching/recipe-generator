@@ -14,29 +14,19 @@ import {
   List,
 } from "@mui/material";
 import { ExpandMore, ExpandLess } from "@mui/icons-material";
-import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 
-const ExpandMe = styled((props) => {
-  const { expand, ...other } = props;
-  return <IconButton {...other} />;
-})(({ theme, expand }) => ({
-  transform: !expand ? "rotate(0deg)" : "rotate(180deg)",
-  marginLeft: "auto",
-}));
-
-function ExpandToggle(props) {
-  const { expand, section, ...other } = props;
+function ToggleExpand({ expand, section }) {
   if (expand)
     return (
       <IconButton>
         <Typography>{section}</Typography>
-        <ExpandLess {...other} aria-label="show more" />
+        <ExpandLess />
       </IconButton>
     );
   return (
     <IconButton>
       <Typography>{section}</Typography>
-      <ExpandMore {...other} aria-label="show more" />
+      <ExpandMore />
     </IconButton>
   );
 }
@@ -100,11 +90,10 @@ function RecipeCard({ recipe }) {
         alt={recipe.title}
       />
       <CardActions onClick={expandIngred}>
-        <ExpandToggle
+        <ToggleExpand
           expand={ingredExpand}
-          aria-expanded={ingredExpand}
           section="Ingredients"
-        ></ExpandToggle>
+        ></ToggleExpand>
       </CardActions>
       <Collapse in={ingredExpand} timeout="auto" unmountOnExit>
         <CardContent>
@@ -135,11 +124,10 @@ function RecipeCard({ recipe }) {
       </Collapse>
       <Divider />
       <CardActions onClick={expandInstruct}>
-        <ExpandToggle
+        <ToggleExpand
           expand={instructExpand}
-          aria-expanded={instructExpand}
           section="Instructions"
-        ></ExpandToggle>
+        ></ToggleExpand>
       </CardActions>
       <Collapse in={instructExpand} timeout="auto" unmountOnExit>
         <CardContent>
@@ -148,11 +136,7 @@ function RecipeCard({ recipe }) {
       </Collapse>
       <Divider />
       <CardActions onClick={expandLink}>
-        <ExpandToggle
-          expand={linkExpand}
-          aria-expanded={linkExpand}
-          section="Source"
-        ></ExpandToggle>
+        <ToggleExpand expand={linkExpand} section="Source"></ToggleExpand>
       </CardActions>
       <Collapse in={linkExpand} timeout="auto" unmountOnExit>
         <CardContent>

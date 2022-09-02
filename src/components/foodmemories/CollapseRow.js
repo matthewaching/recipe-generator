@@ -1,7 +1,16 @@
-import { Collapse, Box, Typography, TableRow, TableCell } from "@mui/material";
+import {
+  Collapse,
+  Box,
+  Typography,
+  TableRow,
+  TableCell,
+  Button,
+  IconButton,
+} from "@mui/material";
 import Link from "next/link";
 import React, { useState } from "react";
 import DialogPopup from "./DialogPopup";
+import { Edit, ExpandMore, ExpandLess } from "@mui/icons-material";
 
 export default function CollapseRow({ item, currentItem, setCurrentItem }) {
   const { dishid, name, date, location, city, type, meal, cooked } = item;
@@ -17,13 +26,26 @@ export default function CollapseRow({ item, currentItem, setCurrentItem }) {
     setDialogOpen(true);
   }
 
+  const handleOpen = () => {
+    setRowOpen((rowOpen) => !rowOpen);
+  };
+
+  function ToggleOpen() {
+    if (rowOpen)
+      return (
+        <IconButton onClick={() => setRowOpen((rowOpen) => !rowOpen)}>
+          <ExpandLess />
+        </IconButton>
+      );
+    return (
+      <IconButton onClick={() => setRowOpen((rowOpen) => !rowOpen)}>
+        <ExpandMore />
+      </IconButton>
+    );
+  }
   return (
     <>
-      <TableRow
-        className="itemTable"
-        key={dishid}
-        onClick={() => setRowOpen(!rowOpen)}
-      >
+      <TableRow className="itemTable" key={dishid}>
         <TableCell>
           <Link
             href={{
@@ -36,9 +58,25 @@ export default function CollapseRow({ item, currentItem, setCurrentItem }) {
         </TableCell>
         <TableCell>{date}</TableCell>
         <TableCell>
-          {location} ({city})
+          <Box
+            sx={{
+              display: "flex",
+              alignItems: "center",
+            }}
+          >
+            {location} ({city})
+            <Button
+              onClick={EditItem}
+              sx={{
+                minWidth: "32px",
+                ml: "auto",
+              }}
+            >
+              <Edit fontSize="small" />
+            </Button>
+            <ToggleOpen />
+          </Box>
         </TableCell>
-        <TableCell onClick={EditItem}>V</TableCell>
       </TableRow>
       <TableRow>
         <TableCell sx={{ pt: 0, pb: 0 }} colSpan={4}>
