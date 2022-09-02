@@ -1,8 +1,9 @@
 import InputList from "../../src/components/foodmemories/InputList";
-import Title from "../../src/components/foodmemories/Title";
+import Hero from "../../src/components/foodmemories/Hero";
 import { onValue, ref } from "firebase/database";
 import { useState, useEffect } from "react";
 import { db } from "../../src/firebase-config";
+import { Box } from "@mui/material";
 
 export default function FoodMemories() {
   const url = "https://foodmemories-6b5eb-default-rtdb.firebaseio.com/";
@@ -16,23 +17,43 @@ export default function FoodMemories() {
     });
   }, []);
 
-  // One-time run GET function
-  // async function getSnapshot() {
-  //   const db = getDatabase();
-  //   const snapshot = await get(ref(db));
-  //   const data = snapshot.val();
-  //   return data;
-  // }
+  const idArray = (() => {
+    if (!currentDb) return;
+    if (!currentDb.dishes) return 0;
+    return Object.keys(currentDb.dishes);
+  })();
 
-  // (async () => {
-  //   const notTemp = await getSnapshot();
-  //   console.log(notTemp);
-  // })();
+  const startId = (() => {
+    if (!currentDb) return;
+    const numArray = idArray
+      .map((id) => Number(id))
+      .sort((a, b) => (a > b ? -1 : 1));
+    return numArray[0] + 1;
+  })();
+
+  const [currentItem, setCurrentItem] = useState({
+    dishid: startId,
+  });
 
   return (
-    <div className="App food-mem">
-      <Title />
-      <InputList currentDb={currentDb} />
-    </div>
+    <Box
+      className="food-mem"
+      sx={{
+        height: "100%",
+        backgroundColor: "lightblue",
+      }}
+    >
+      <Hero
+        currentItem={currentItem}
+        setCurrentItem={setCurrentItem}
+        currentDb={currentDb}
+      />
+      <InputList
+        currentItem={currentItem}
+        setCurrentItem={setCurrentItem}
+        currentDb={currentDb}
+        idArray={idArray}
+      />
+    </Box>
   );
 }

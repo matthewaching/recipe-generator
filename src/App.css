@@ -38,8 +38,16 @@ body {
 }
 
 .food-mem {
-  background-image: url(/images/background-noise.png);
-  background-repeat: repeat;
+  font-family: Georgia, "Times New Roman", Times, serif;
+  text-align: center;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: calc(10px + 2vmin);
+  color: black;
+  padding-top: 36px;
+  flex-shrink: 0;
 }
 
 table {
@@ -53,6 +61,7 @@ table {
   display: flex;
   flex-direction: column;
   align-items: center;
+  gap: 8px;
 }
 
 td,
@@ -98,13 +107,6 @@ td {
 
 form > button {
   align-self: center;
-}
-
-.inputs-table-container {
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
-  margin-top: -16px;
 }
 
 input[type="text"] {

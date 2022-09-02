@@ -7,6 +7,7 @@ import {
   TableHead,
   TableRow,
   TableCell,
+  Box,
 } from "@mui/material";
 
 import CollapseRow from "./CollapseRow";
@@ -30,7 +31,7 @@ export default function DisplayTable({
   };
 
   return (
-    <div className="table-container">
+    <Box className="table-container">
       <Table>
         <TableHead>
           <TableRow>
@@ -58,7 +59,7 @@ export default function DisplayTable({
         page={currentPage}
         onChange={changePage}
       />
-    </div>
+    </Box>
   );
 }
 

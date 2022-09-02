@@ -1,5 +1,5 @@
 import PropTypes from "prop-types";
-import { Button, Dialog } from "@mui/material";
+import { Button, Typography, Box } from "@mui/material";
 import { Restaurant } from "@mui/icons-material";
 import React, { useState } from "react";
 import ItemDialog from "./ItemDialog";
@@ -10,16 +10,28 @@ export default function InputFields({ currentItem, setCurrentItem }) {
   return (
     <React.Fragment>
       <Button
-        variant="contained"
-        startIcon={<Restaurant />}
+        variant="outlined"
         onClick={() => setOpen(true)}
         sx={{
           alignSelf: "center",
           fontWeight: "strong",
-          borderRadius: "20px",
+          borderRadius: "100%",
+          aspectRatio: "1/1",
+          display: "flex",
+          flexDirection: "column",
+          height: "20vh",
         }}
       >
-        Add Memory
+        <Box
+          sx={{
+            display: "flex",
+            gap: "0.5rem",
+          }}
+        >
+          <Restaurant />
+          <Typography>Add</Typography>
+        </Box>
+        <Typography>Memory</Typography>
       </Button>
       <ItemDialog
         open={open}
