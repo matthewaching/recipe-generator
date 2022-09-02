@@ -10,16 +10,16 @@ export default function DialogButton({ currentItem, setCurrentItem }) {
   return (
     <React.Fragment>
       <Button
-        variant="outlined"
+        variant="contained"
         onClick={() => setOpen(true)}
         sx={{
-          alignSelf: "center",
-          fontWeight: "strong",
-          borderRadius: "100%",
-          aspectRatio: "1/1",
           display: "flex",
           flexDirection: "column",
-          height: "20vh",
+          height: "12rem",
+          width: "25vw",
+          minWidth: "12rem",
+          alignSelf: "center",
+          borderRadius: "13rem",
         }}
       >
         <Box
@@ -29,9 +29,23 @@ export default function DialogButton({ currentItem, setCurrentItem }) {
           }}
         >
           <Restaurant />
-          <Typography>Add</Typography>
+          <Typography
+            sx={{
+              fontSize: "1rem",
+              fontWeight: "bold",
+            }}
+          >
+            Add
+          </Typography>
         </Box>
-        <Typography>Memory</Typography>
+        <Typography
+          sx={{
+            fontSize: "1rem",
+            fontWeight: "bold",
+          }}
+        >
+          Memory
+        </Typography>
       </Button>
       <DialogPopup
         open={open}

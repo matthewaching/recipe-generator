@@ -34,7 +34,6 @@ export default function MemoryTable({
   return (
     <Box
       sx={{
-        backgroundColor: "lightblue",
         boxSizing: "border-box",
         width: "100%",
         height: "100%",

@@ -40,7 +40,7 @@ export default function FoodMemories() {
       className="food-mem"
       sx={{
         height: "100%",
-        backgroundColor: "lightblue",
+        backgroundColor: "#caf0f8",
       }}
     >
       <Hero

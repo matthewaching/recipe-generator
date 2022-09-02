@@ -8,7 +8,7 @@ function NavBar() {
       className="appbar"
       position="fixed"
       sx={{
-        background: "linear-gradient(45deg, lavender, lightblue)",
+        backgroundColor: "white",
         height: "4rem",
         zIndex: (theme) => theme.zIndex.drawer + 1,
         justifyContent: "center",
@@ -22,15 +22,39 @@ function NavBar() {
         }}
       >
         <Link href="/">
-          <Button variant="text">About</Button>
+          <Button
+            variant="text"
+            sx={{
+              color: "#023047",
+              fontWeight: "bold",
+            }}
+          >
+            About
+          </Button>
         </Link>
 
         <Link href="/foodmemories">
-          <Button variant="text">Food Memories</Button>
+          <Button
+            variant="text"
+            sx={{
+              color: "#023047",
+              fontWeight: "bold",
+            }}
+          >
+            Food Memories
+          </Button>
         </Link>
 
         <Link href="/recipelookup">
-          <Button variant="text">Recipe Generator</Button>
+          <Button
+            variant="text"
+            sx={{
+              color: "#023047",
+              fontWeight: "bold",
+            }}
+          >
+            Recipe Generator
+          </Button>
         </Link>
 
         <Box
@@ -43,8 +67,8 @@ function NavBar() {
         >
           <Button href="/login">
             <AccountCircle
-              htmlColor="white"
-              sx={{ fontSize: "60px", alignSelf: "center", mt: "0px" }}
+              htmlColor="#023047"
+              sx={{ fontSize: "59px", alignSelf: "center", mt: "0px" }}
             />
           </Button>
         </Box>
@@ -54,14 +78,13 @@ function NavBar() {
             display: "flex",
             justifyContent: "center",
             alignItems: "center",
+            height: "100%",
+            boxSizing: "border-box",
           }}
         >
-          <a href="https://github.com/matthewaching/food-memories">
-            <GitHub
-              htmlColor="white"
-              sx={{ fontSize: "54px", alignSelf: "center", mt: "2px" }}
-            />
-          </a>
+          <Button href="https://github.com/matthewaching/food-memories">
+            <GitHub htmlColor="#023047" sx={{ fontSize: "54px" }} />
+          </Button>
         </Box>
       </Toolbar>
     </AppBar>
