@@ -8,6 +8,7 @@ import {
   Button,
 } from "@mui/material";
 import { RamenDining, Egg, ManageSearch } from "@mui/icons-material";
+import Title from "/src/components/recipelookup/Title";
 
 export default function SideBar({
   dishQuery,
@@ -24,24 +25,13 @@ export default function SideBar({
     setIngredQuery(e.target.value);
   };
 
-  const drawerWidth = "calc(3rem + 10vw)";
   return (
-    <Drawer
-      variant="permanent"
-      sx={{
-        width: drawerWidth,
-        flexShrink: 0,
-        [`& .MuiDrawer-paper`]: { width: drawerWidth, boxSizing: "border-box" },
-      }}
-    >
-      <Toolbar />
+    <>
+      <Title />
       <Box
         sx={{
-          overflow: "auto",
+          flex: "1",
           padding: "24px 6px 0 6px",
-          background: "linear-gradient(lavender, lightblue)",
-          height: "100%",
-          borderRight: "1px solid darkgray",
           display: "flex",
           flexDirection: "column",
           gap: "36px",
@@ -75,19 +65,18 @@ export default function SideBar({
           onChange={ingredInput}
           value={ingredQuery}
         />
-        <Divider
-          sx={{
-            mb: "72px",
-          }}
-        />
         <Button
           onClick={callApi}
           variant="outlined"
           startIcon={<ManageSearch />}
+          sx={{
+            mt: "auto",
+            mb: "1rem",
+          }}
         >
           Generate Recipe
         </Button>
       </Box>
-    </Drawer>
+    </>
   );
 }

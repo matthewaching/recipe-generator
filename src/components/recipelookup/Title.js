@@ -1,9 +1,16 @@
-import { Box } from "@mui/material";
+import { Box, Typography } from "@mui/material";
 
 export default function Title() {
   return (
     <Box className="title-container">
-      <h1 className="title">Recipe Generator</h1>
+      <Typography
+        variant="h1"
+        sx={{
+          fontSize: "4rem",
+        }}
+      >
+        Generate a Recipe!
+      </Typography>
     </Box>
   );
 }

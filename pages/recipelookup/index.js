@@ -1,9 +1,7 @@
 import SideBar from "../../src/components/recipelookup/SideBar";
-import Title from "../../src/components/recipelookup/Title";
 import DisplayRecipe from "../../src/components/recipelookup/DisplayRecipe";
 import { useState } from "react";
-import { Box } from "@mui/material";
-import { Toolbar } from "@mui/material";
+import { Box, Card, Divider } from "@mui/material";
 
 const initUrl =
   "https://api.spoonacular.com/recipes/complexSearch?sort=random&addRecipeInformation=true&fillIngredients=true&number=20";
@@ -40,25 +38,60 @@ export default function RecipeLookup() {
   };
 
   return (
-    <Box className="recipe">
-      <SideBar
-        dishQuery={dishQuery}
-        ingredQuery={ingredQuery}
-        setDishQuery={setDishQuery}
-        setIngredQuery={setIngredQuery}
-        callApi={callApi}
-      />
-      <Box
+    <Box
+      className="recipe"
+      sx={{
+        display: "flex",
+        justifyContent: "center",
+      }}
+    >
+      <Card
         sx={{
           display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
+          minHeight: "80vh",
+          maxWidth: "90vw",
+          flex: "1",
+          mt: "8rem",
+          mb: "4rem",
         }}
-        component="main"
       >
-        <Title />
-        <DisplayRecipe currentRecipe={currentRecipe} />
-      </Box>
+        <Box
+          sx={{
+            display: "flex",
+            flexDirection: "column",
+            flex: "1 0 auto",
+            p: "2rem",
+          }}
+        >
+          <SideBar
+            dishQuery={dishQuery}
+            ingredQuery={ingredQuery}
+            setDishQuery={setDishQuery}
+            setIngredQuery={setIngredQuery}
+            callApi={callApi}
+          />
+        </Box>
+        <Divider
+          orientation="vertical"
+          variant="middle"
+          flexItem
+          sx={{
+            my: "2rem",
+          }}
+        />
+        <Box
+          sx={{
+            flex: "9 0 auto",
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            justifyContent: "center",
+          }}
+          component="main"
+        >
+          <DisplayRecipe currentRecipe={currentRecipe} />
+        </Box>
+      </Card>
     </Box>
   );
 }

@@ -33,8 +33,6 @@ body {
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: black;
-  padding-top: 36px;
-  margin-top: 36px;
 }
 
 .food-mem {
