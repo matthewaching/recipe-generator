@@ -1,13 +1,10 @@
+import { Box, InputAdornment, TextField, Button, Tooltip } from "@mui/material";
 import {
-  Box,
-  Drawer,
-  Toolbar,
-  InputAdornment,
-  TextField,
-  Divider,
-  Button,
-} from "@mui/material";
-import { RamenDining, Egg, ManageSearch } from "@mui/icons-material";
+  RamenDining,
+  Egg,
+  ManageSearch,
+  HelpOutline,
+} from "@mui/icons-material";
 import Title from "/src/components/recipelookup/Title";
 
 export default function SideBar({
@@ -46,6 +43,16 @@ export default function SideBar({
                 <RamenDining />
               </InputAdornment>
             ),
+            endAdornment: (
+              <InputAdornment position="end">
+                <Tooltip
+                  title='Generates recipe based on the specified keyword (eg: "lasagna" will return a lasagna recipe)'
+                  placement="right"
+                >
+                  <HelpOutline />
+                </Tooltip>
+              </InputAdornment>
+            ),
           }}
           variant="standard"
           onChange={dishInput}
@@ -58,6 +65,16 @@ export default function SideBar({
             startAdornment: (
               <InputAdornment position="start">
                 <Egg />
+              </InputAdornment>
+            ),
+            endAdornment: (
+              <InputAdornment position="end">
+                <Tooltip
+                  title='Generates recipe from a comma-separated list of ingredients (eg: "cabbage, -chicken" will return a recipe including cabbage and excluding chicken)'
+                  placement="right"
+                >
+                  <HelpOutline />
+                </Tooltip>
               </InputAdornment>
             ),
           }}

@@ -11,8 +11,6 @@ const ApiKey = "&apiKey=34638b0a66394dec9ee3da6fab1e6423";
 export default function RecipeLookup() {
   const [currentRecipe, setRecipe] = useState({});
 
-  const [url, setUrl] = useState(initUrl);
-
   const [dishQuery, setDishQuery] = useState();
 
   const [ingredQuery, setIngredQuery] = useState();
@@ -21,10 +19,34 @@ export default function RecipeLookup() {
     const url = initUrl;
     if (dishQuery) url += `&query=${dishQuery}`;
     if (ingredQuery) {
-      url += "&includeIngredients=";
       if (ingredQuery.includes(",")) {
-        const correctedQuery = ingredQuery.replace(/\s+/g, "");
-        url += correctedQuery;
+        const ingredList = ingredQuery.split(",");
+        const sortedList = ingredList.reduce((sortedIngreds, ingred) => {
+          const trimmedIngred = ingred.trim();
+          if (trimmedIngred[0] === "-") {
+            sortedIngreds.exclude ??= [];
+            sortedIngreds.exclude.push(trimmedIngred.slice(1));
+            return sortedIngreds;
+          }
+          sortedIngreds.include ??= [];
+          sortedIngreds.include.push(trimmedIngred);
+          return sortedIngreds;
+        }, {});
+        if (sortedList.include) {
+          const includeSnippet = "&includeIngredients=";
+          sortedList.include.forEach(
+            (ingred) => (includeSnippet += ingred + ",")
+          );
+          url += includeSnippet.slice(0, -1);
+        }
+        if (sortedList.exclude) {
+          const excludeSnippet = "&excludeIngredients=";
+          sortedList.exclude.forEach(
+            (ingred) => (excludeSnippet += ingred + ",")
+          );
+          url += excludeSnippet.slice(0, -1);
+        }
+        // const correctedQuery = ingredQuery.replace(/\s+/g, "");
       } else {
         url += ingredQuery;
       }
