@@ -1,6 +1,5 @@
 import "../src/App.css";
 import { PropTypes } from "prop-types";
-import NavBar from "../src/components/NavBar";
 import Head from "next/head";
 
 export default function MyApp({ Component, pageProps }) {
@@ -17,7 +16,6 @@ export default function MyApp({ Component, pageProps }) {
         />
         <link rel="manifest" href="/manifest.json" />
       </Head>
-      <NavBar />
       <Component {...pageProps} />
     </>
   );
