@@ -80,11 +80,16 @@ function RecipeCard({ recipe }) {
   })();
 
   return (
-    <Card sx={{ width: 450 }}>
+    <Card
+      elevation="4"
+      sx={{
+        flex: 1,
+      }}
+    >
       <CardHeader title={recipe.title} subheader={prepTime} />
       <CardMedia
         component="img"
-        height="235"
+        height="300"
         image={recipe.image}
         alt={recipe.title}
       />

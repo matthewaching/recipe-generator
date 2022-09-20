@@ -1,4 +1,11 @@
-import { Box, InputAdornment, TextField, Button, Tooltip } from "@mui/material";
+import {
+  Box,
+  InputAdornment,
+  TextField,
+  Button,
+  Tooltip,
+  Typography,
+} from "@mui/material";
 import {
   RamenDining,
   Egg,
@@ -85,13 +92,28 @@ export default function SideBar({
         <Button
           onClick={callApi}
           variant="outlined"
-          startIcon={<ManageSearch />}
           sx={{
             mt: "auto",
             mb: "1rem",
+            alignSelf: "center",
+            display: "flex",
+            alignItems: "center",
+            gap: ".25rem",
+            borderWidth: "2px",
           }}
         >
-          Generate Recipe
+          <ManageSearch
+            sx={{
+              fontSize: "1.5rem",
+            }}
+          />
+          <Typography
+            sx={{
+              fontSize: "1.25rem",
+            }}
+          >
+            Generate
+          </Typography>
         </Button>
       </Box>
     </>

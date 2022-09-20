@@ -1,6 +1,6 @@
 {
-  "short_name": "Matt's Food App",
-  "name": "Food Memories Journal and Random Recipe Generator",
+  "short_name": "Random Recipe Generator",
+  "name": "Random Recipe Generator",
   "icons": [
     {
       "src": "favicon.ico",

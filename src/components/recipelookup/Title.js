@@ -6,7 +6,7 @@ export default function Title() {
       <Typography
         variant="h1"
         sx={{
-          fontSize: "4rem",
+          fontSize: "calc(0.5rem + 2.5vw)",
         }}
       >
         Generate a Recipe!

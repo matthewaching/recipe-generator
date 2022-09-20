@@ -2,6 +2,7 @@ import SideBar from "../src/components/recipelookup/SideBar";
 import DisplayRecipe from "../src/components/recipelookup/DisplayRecipe";
 import { useState } from "react";
 import { Box, Card, Divider } from "@mui/material";
+import { Repeat } from "@mui/icons-material";
 
 const initUrl =
   "https://api.spoonacular.com/recipes/complexSearch?sort=random&addRecipeInformation=true&fillIngredients=true&number=20";
@@ -69,12 +70,12 @@ export default function RecipeLookup() {
     >
       <Card
         sx={{
-          display: "flex",
+          display: "grid",
           minHeight: "80vh",
-          maxWidth: "90vw",
-          flex: "1",
-          mt: "4rem",
-          mb: "4rem",
+          width: "90vw",
+          gridTemplateColumns: "3fr 2px 5fr",
+          my: "4rem",
+          p: "3rem",
         }}
       >
         <Box
@@ -82,7 +83,7 @@ export default function RecipeLookup() {
             display: "flex",
             flexDirection: "column",
             flex: "1 0 auto",
-            p: "2rem",
+            pr: "2rem",
           }}
         >
           <SideBar
@@ -93,21 +94,14 @@ export default function RecipeLookup() {
             callApi={callApi}
           />
         </Box>
-        <Divider
-          orientation="vertical"
-          variant="middle"
-          flexItem
-          sx={{
-            my: "2rem",
-          }}
-        />
+        <Divider orientation="vertical" variant="middle" flexItem />
         <Box
           sx={{
             flex: "9 0 auto",
             display: "flex",
-            flexDirection: "column",
             alignItems: "center",
             justifyContent: "center",
+            px: "3rem",
           }}
           component="main"
         >
